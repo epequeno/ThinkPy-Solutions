@@ -8,28 +8,27 @@
 # list the same way. Otherwise you search the second half.
 # Either way, you cut the remaining search space in half. If the word list 
 # has 113,809 words, it will take about 17 steps to find the word or conclude
-# that it’s not there.
+# that it's not there.
 # Write a function called bisect that takes a sorted list and a target value 
 # and returns the index of the value in the list, if it's there, or None if 
 # it's not.
 # Or you could read the documentation of the bisect module and use that!
 #
 import bisect
-import math
 
-# create list of items in words.txt
-wordList = [words.txt]
+def make_list():
+   words = open('words.txt')
+   for line in words:
+       line = line.strip()
+       wordList = []
+       wordList = wordList.append(line) 
+       print wordList
 
-# determine midpoint
-middle = wordList.bisect()
+make_list()
 
-# choose first or second half
-def bisect(wordList, word):
-   if str(word) < word@middle:
-       # make chosen half new reference
-       # update middle with new range from [0] to midpoint
-       return index
-   else:
-       # range from midpoint to [-1]
-       return index
+
+def is_in_list(make_list):
+   print make_list()
+
+#is_in_list(make_list())
 
