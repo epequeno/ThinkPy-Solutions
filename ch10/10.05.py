@@ -22,7 +22,7 @@ def has_duplicates(listOne):
        if listOne.count(listOne[i]) > 1:
            print True
            break
-       elif i == (len(listOne) - 1): # -1 for index notation
+       elif i == (len(listOne) - 1) and listOne.count(listOne[i]) == 1:
            print False
            break
        i += 1

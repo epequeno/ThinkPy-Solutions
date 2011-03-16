@@ -48,8 +48,10 @@ import datetime
 from datetime import timedelta
 
 startTime = datetime.datetime(2011, 01, 01, 6, 52, 0)
+# set datetime y/m/d h:m:s:ms tzinfo
 timeSec = (((8.0 * 60.0) + 15.0) * 2.0) + (((7.0 * 60.0) + 12.0) * 3.0)
 timeMin = timeSec / 60.0
+# not printed, result is 38.1; a 1/10 of a min is 6 seconds
 timeSpent = datetime.timedelta(minutes=38, seconds=6)
 finalTime = startTime + timeSpent
 
