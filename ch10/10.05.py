@@ -13,16 +13,18 @@
 #
 import random
 
-# listOne = [1, 2, 3, 4, 5]
-listOne = [1, 2, 2, 3, 4]
+listOne = [1, 2, 3, 4, 5]
+# listOne = [1, 2, 2, 3, 4]
 
 def has_duplicates(listOne):
-    i = 0
-    while i < len(listOne):
+   i = 0
+   while i < len(listOne):
        if listOne.count(listOne[i]) > 1:
            print True
-       else:
+           break
+       elif i == len(listOne):
            print False
+           break
        i += 1
 
 has_duplicates(listOne)
