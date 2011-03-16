@@ -22,9 +22,28 @@ def has_duplicates(listOne):
        if listOne.count(listOne[i]) > 1:
            print True
            break
-       elif i == len(listOne):
+       elif i == (len(listOne) - 1): # -1 for index notation
            print False
            break
        i += 1
 
 has_duplicates(listOne)
+
+# for 23 students we will create a list for each of the 23 random birthdays
+birthDay = []
+ 
+# to birthDay we will append the random int
+i = 0
+while i <= 23:
+   birthDay.append(random.randint(1, 365))
+
+# we will run the list through has_duplicates(), for each list that returns
+# true, increment duplicate count. See what the probibility of getting a 
+# duplicate is given 100 trial classes
+
+trial = 0
+while trial < 100:
+   if has_duplicates():
+       dupCount += 1
+   trial += 1
+   print dupCount / trial
