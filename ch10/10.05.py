@@ -20,30 +20,45 @@ def has_duplicates(listOne):
    i = 0
    while i < len(listOne):
        if listOne.count(listOne[i]) > 1:
-           print True
+           return True
            break
        elif i == (len(listOne) - 1) and listOne.count(listOne[i]) == 1:
-           print False
+           return False
            break
        i += 1
 
-has_duplicates(listOne)
+# has_duplicates(listOne)
 
-# for 23 students we will create a list for each of the 23 random birthdays
-birthDay = []
- 
-# to birthDay we will append the random int
-i = 0
-while i <= 23:
-   birthDay.append(random.randint(1, 365))
+def paradox():
+   birthDay = []
+   i = 0
+   while i < 23:
+       birthDay.append(random.randint(1, 365))
+       i += 1
+   return birthDay   
+
+# paradox()
 
 # we will run the list through has_duplicates(), for each list that returns
 # true, increment duplicate count. See what the probibility of getting a 
-# duplicate is given 100 trial classes
+# duplicate is given 10,000 trial classes. This one took a while to run with
+# 1,000,000 classes.  With 100 trials the probility was kind of all over the
+# place and we would have had to do some other statistics on it to find the
+# average or mode, but if we change the sample size to 10,000, the probablity
+# returns ~50% on most runs.
 
-trial = 0
-while trial < 100:
-   if has_duplicates():
-       dupCount += 1
-   trial += 1
-   print dupCount / trial
+def stats(paradox):
+   i = 0
+   dupCount = 0
+   while i < 10000:
+       if has_duplicates(paradox()):
+           dupCount += 1
+       i += 1 
+   print (float(dupCount) / i) * 100.0, '%'
+
+
+stats(paradox)
+
+# His solution is better since it takes the class size and number of trials
+# as variables. Parts of his solution and mine are almost identical but the
+# way we approached the has_duplicates problem are pretty different.
