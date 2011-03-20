@@ -13,7 +13,7 @@
 #
 import random
 
-listOne = [1, 2, 3, 4, 5]
+# listOne = [1, 2, 3, 4, 5]
 # listOne = [1, 2, 2, 3, 4]
 
 def has_duplicates(listOne):
@@ -22,12 +22,20 @@ def has_duplicates(listOne):
        if listOne.count(listOne[i]) > 1:
            return True
            break
-       elif i == (len(listOne) - 1) and listOne.count(listOne[i]) == 1:
+       elif i == (len(listOne) - 1):
            return False
            break
        i += 1
 
 # has_duplicates(listOne)
+# Got rid of the second test on the elif statement. The first if statment will
+# check every index from 0 to (len(listOne) - 1) and check if that index has 
+# a count greater than 1. If the loop has gotten to the last or even second 
+# to last index and not found a duplicate you can be safe in assuming that 
+# there are no duplicated items in the list. When the counter is up to the 2nd
+# to last item in the list (which as far as the index notation goes is the 
+# last item) it means that all items in the list have been checked and that
+# there were no matches, the false condition. 
 
 def paradox():
    birthDay = []
