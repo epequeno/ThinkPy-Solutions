@@ -70,3 +70,20 @@ stats(paradox)
 # His solution is better since it takes the class size and number of trials
 # as variables. Parts of his solution and mine are almost identical but the
 # way we approached the has_duplicates problem are pretty different.
+#
+# When run with 10,000 trials stats() runs:
+# real	0m0.541s
+# user	0m0.540s
+# sys	0m0.000s
+#
+# When run with 100,000 trials:
+# real	0m5.223s
+# user	0m5.204s
+# sys	0m0.000s
+#
+# With 1,000,000 trials:
+# real	0m52.642s
+# user	0m52.451s
+# sys	0m0.020s
+# 
+# Setting these as benchmarks for attempts at optimization later.
