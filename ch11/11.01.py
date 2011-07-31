@@ -7,10 +7,9 @@
 import uuid
 
 words = open('words.txt')
+result = dict()
 
 def dictionary():
-   global result
-   result = dict()
    for line in words:
        result[line] = uuid.uuid4()
    return result
