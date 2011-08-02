@@ -18,10 +18,9 @@ n = int(raw_input('What value to use for n?\n'))
 def check_fermat(a, b, c, n):
     if n == 2:
        print 'Pythagoras got that one already, thanks.\n'
-       return
-    if a**n + b**n == c**n:
-        print('Holy Smokes, Fermat was Wrong!')
+    elif a**n + b**n == c**n:
+        print('Holy Smokes, Fermat was Wrong!\n')
     else:
-        print('No, that doesn\'t work.')
+        print("No, that doesn't work.\n")
 
 check_fermat(a, b, c, n)
