@@ -22,12 +22,13 @@ Created on Mon Aug  1 19:49:05 2011
 # of the last expression it evaluated.
 
 def eval_loop():
-    n = raw_input('What input?\n')
     while True:
+        n = raw_input('Input?\n:: ')
         if n == 'done':
             break
         else:
-            print eval(n)
-        eval_loop()
+            result = eval(n)
+            print result
+    print result
         
 eval_loop()
