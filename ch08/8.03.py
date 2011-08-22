@@ -7,7 +7,7 @@ Created on Sun Aug  7 17:48:34 2011
 
 # Given that fruit is a string, what does fruit[:] mean?
 
-# fruit[:] means the entire string from start to end as demonstated here:
+# fruit[:] means the entire string from start to end as demonsrtated here:
 
 string = "steven"
 
