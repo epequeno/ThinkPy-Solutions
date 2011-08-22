@@ -22,7 +22,7 @@ def rot13(word, amount):
     rotated = ''
     for letter in word:
         letter = ord(letter) + amount
-        rotated = rotated + chr(letter)
+        rotated += chr(letter)
     return rotated
     
 print rot13("cheer", 7)
