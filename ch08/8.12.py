@@ -19,10 +19,9 @@ Created on Sun Aug  7 19:24:25 2011
 # If you are not easily offended, find and decode some of them.
 
 def rot13(word, amount):
-    rotated = ''
-    for letter in word:
-        letter = ord(letter) + amount
-        rotated += chr(letter)
-    return rotated
-    
+   rotated = ''
+   for letter in word:
+       rotated += chr(ord(letter) + amount)
+   return rotated
+
 print rot13("cheer", 7)
