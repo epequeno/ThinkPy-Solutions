@@ -13,4 +13,10 @@ def chop(nom):
    del nom[-1]
    print nom
 
-chop(nom)
+print chop(nom)
+
+def middle(nom):
+   t = x[1:-1]
+   return t
+
+print middle(nom)
