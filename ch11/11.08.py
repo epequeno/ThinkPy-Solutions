@@ -3,3 +3,14 @@
 # there is any object that appears more than once in the list.
 # Use a dictionary to write a faster, simpler version of has_duplicates.
 
+listOne = [1, 2, 3, 3, 4]
+
+def has_dups(listOne):
+   dictionary = {}
+   for item in listOne:
+       dictionary[item] = 1 + dictionary.get(item, 0)
+       if dictionary[item] > 1:
+           return True
+   return dictionary
+
+print has_dups(listOne)
