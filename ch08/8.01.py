@@ -17,3 +17,11 @@ def string_backwards(string):
         i -= 1
 
 string_backwards("steven")
+
+# version 2
+
+def backwards(x):
+   for i in x[::-1]:
+       print i
+
+backwards("steven")
