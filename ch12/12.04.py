@@ -21,29 +21,26 @@
 # test all pairs of words, and don't test all possible swaps.
 # You can download a solution from thinkpython.com/code/anagram_sets.py.
 
+# Status: Incomplete
+
 word_file = open('words.txt')
 list_of_sorted_words = open('list_of_sorted_words.txt', 'w')
 
 def create_list_of_sorted_words(word_list):
     '''Creates a file of each word in the word_file
     with each word's letters sorted by alpha. This will give
-    us the group of words to test anagrams against'''
+    us the group of words to test is_anagrams against'''
     sorted_list = []
     for word in word_list:
-        sorted_word = []
-        for letter in word:
-            sorted_word.append(letter)
-        sorted_word.sort()
-        temp = ''.join(sorted_word)
-        if temp in sorted_list:
+        sorted_word = sorted(word)
+        sorted_word = ''.join(sorted_word)
+        if sorted_word in sorted_list: # eliminate duplicates
             pass
         else:
-            sorted_list.append(temp)
-    for word in sorted_list:
-        list_of_sorted_words.write(word)
+            sorted_list.append(sorted_word)
+            list_of_sorted_words.write(sorted_word)
     
-# create_list_of_sorted_words(word_file)
+#create_list_of_sorted_words(word_file)
 
 def is_anagram(sorted_word, test_word):
     return sorted_word == sorted(test_word)
-    
