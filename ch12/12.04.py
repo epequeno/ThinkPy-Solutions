@@ -25,6 +25,9 @@ word_file = open('words.txt')
 list_of_sorted_words = open('list_of_sorted_words.txt', 'w')
 
 def create_list_of_sorted_words(word_list):
+    '''Creates a file of each word in the word_file
+    with each word's letters sorted by alpha. This will give
+    us the group of words to test anagrams against'''
     sorted_list = []
     for word in word_list:
         sorted_word = []
@@ -39,4 +42,8 @@ def create_list_of_sorted_words(word_list):
     for word in sorted_list:
         list_of_sorted_words.write(word)
     
-print create_list_of_sorted_words(word_file)
+# create_list_of_sorted_words(word_file)
+
+def is_anagram(sorted_word, test_word):
+    return sorted_word == sorted(test_word)
+    
