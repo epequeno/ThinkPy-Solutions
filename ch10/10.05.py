@@ -40,7 +40,7 @@ def has_duplicates(listOne):
 def paradox():
    birthDay = []
    i = 0
-   while i < 23:
+   while i <= 23:
        birthDay.append(random.randint(1, 365))
        i += 1
    return birthDay   
