@@ -21,4 +21,22 @@
 # test all pairs of words, and don't test all possible swaps.
 # You can download a solution from thinkpython.com/code/anagram_sets.py.
 
-print "test"
+word_file = open('words.txt')
+list_of_sorted_words = open('list_of_sorted_words.txt', 'w')
+
+def create_list_of_sorted_words(word_list):
+    sorted_list = []
+    for word in word_list:
+        sorted_word = []
+        for letter in word:
+            sorted_word.append(letter)
+        sorted_word.sort()
+        temp = ''.join(sorted_word)
+        if temp in sorted_list:
+            pass
+        else:
+            sorted_list.append(temp)
+    for word in sorted_list:
+        list_of_sorted_words.write(word)
+    
+print create_list_of_sorted_words(word_file)
