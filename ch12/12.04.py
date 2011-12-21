@@ -21,4 +21,4 @@
 # test all pairs of words, and don't test all possible swaps.
 # You can download a solution from thinkpython.com/code/anagram_sets.py.
 
-
+print "test"
