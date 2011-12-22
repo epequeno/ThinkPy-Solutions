@@ -24,6 +24,9 @@
 # Status: Incomplete
 
 word_file = open('words.txt')
+word_list = []
+for word in word_file:
+    word_list.append(word.strip('\n'))
 list_of_sorted_words = open('list_of_sorted_words.txt')
 
 def create_list_of_sorted_words(word_list):
@@ -44,16 +47,24 @@ def create_list_of_sorted_words(word_list):
 
 def is_anagram(sorted_word, test_word):
     return sorted(sorted_word) == sorted(test_word)
-    
+   
 def test_words(list_of_sorted_words, word_list):
     sorted_to_anagram = {}
     for sorted_word in list_of_sorted_words:
+        sorted_word = sorted_word.strip('\n')
         anagrams = []
-        for word in word_list:
-            if is_anagram(sorted_word, word):
-                anagrams.append(word)
+        i = 0
+        while i < len(word_list) - 1:
+            if is_anagram(sorted_word, word_list[i].strip('\n')):
+                anagrams.append(word_list[i].strip('\n'))
+                i += 1
+            else:
+                i += 1
         sorted_to_anagram[sorted_word] = anagrams
-    for key in sorted_to_anagram:
-        print sorted_to_anagram[key]
-        
-test_words(list_of_sorted_words, word_file)
+    for sorted_word in sorted_to_anagram:
+        if sorted_to_anagram[sorted_word] == []:
+            pass
+        else:
+            print sorted_to_anagram[sorted_word]
+
+test_words(list_of_sorted_words, word_list)
