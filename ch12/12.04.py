@@ -21,7 +21,7 @@
 # test all pairs of words, and don't test all possible swaps.
 # You can download a solution from thinkpython.com/code/anagram_sets.py.
 
-# Status: Incomplete
+# Status: Complete
 
 file_of_words = open('words.txt')
 file_of_sorted_words = open('list_of_sorted_words.txt')
@@ -92,3 +92,37 @@ def find_bingos():
     
 # print find_bingos()
 
+sorted_list_of_anagrams = make_sorted_list_of_anagrams()
+
+def is_metathesis(reference_word, test_word):
+    '''Steps though reference_word and test_word and counts how often the 
+    two words differ. Metathesis pairs will mismatch exactly twice'''
+    mismatch_count = 0
+    i = 0
+    while i <= len(reference_word) - 1:
+        if reference_word[i] != test_word[i]:
+            mismatch_count += 1
+            i +=1
+        else:
+            i += 1
+    if mismatch_count == 2:
+        return True
+    else:
+        return False
+
+def find_metathesis_pairs():
+    '''For each list of anagrams produced by make_sorted_list_of_anagrams, 
+    use the first element as a reference word and check the rest of the 
+    list against that reference word using is_metathesis. Print pairs of 
+    words found to be metathesis pairs'''
+    for test_list in sorted_list_of_anagrams:
+        reference_word = test_list[0]
+        i = 1
+        while i <= len(test_list) - 1:
+            if is_metathesis(reference_word, test_list[i]):
+                print reference_word, test_list[i]
+                i += 1
+            else:
+                i += 1
+
+find_metathesis_pairs()
