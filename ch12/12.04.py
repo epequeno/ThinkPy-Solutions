@@ -23,48 +23,55 @@
 
 # Status: Incomplete
 
-word_file = open('words.txt')
-word_list = []
-for word in word_file:
-    word_list.append(word.strip('\n'))
-list_of_sorted_words = open('list_of_sorted_words.txt')
+file_of_words = open('words.txt')
+file_of_sorted_words = open('list_of_sorted_words.txt')
 
-def create_list_of_sorted_words(word_list):
-    '''Creates a file of each word in the word_file
-    with each word's letters sorted by alpha. This will give
-    us the group of words to test is_anagrams against'''
-    sorted_list = []
-    for word in word_list:
-        sorted_word = sorted(word)
-        sorted_word = ''.join(sorted_word)
-        if sorted_word in sorted_list: # eliminate duplicates
-            pass
-        else:
-            sorted_list.append(sorted_word)
-            list_of_sorted_words.write(sorted_word)
+def make_word_list():
+    word_list= []
+    for word in file_of_words:
+        word_list.append(word.strip('\n'))
+    return word_list
     
-# create_list_of_sorted_words(word_file)
+word_list = make_word_list()
+
+def make_sorted_word_list():
+    sorted_word_list = []
+    for sorted_word in file_of_sorted_words:
+        sorted_word_list.append(sorted_word.strip('\n'))
+    return sorted_word_list
+
+sorted_word_list = make_sorted_word_list()
 
 def is_anagram(sorted_word, test_word):
     return sorted(sorted_word) == sorted(test_word)
    
-def test_words(list_of_sorted_words, word_list):
-    sorted_to_anagram = {}
-    for sorted_word in list_of_sorted_words:
-        sorted_word = sorted_word.strip('\n')
-        anagrams = []
-        i = 0
-        while i < len(word_list) - 1:
-            if is_anagram(sorted_word, word_list[i].strip('\n')):
-                anagrams.append(word_list[i].strip('\n'))
-                i += 1
-            else:
-                i += 1
-        sorted_to_anagram[sorted_word] = anagrams
-    for sorted_word in sorted_to_anagram:
-        if sorted_to_anagram[sorted_word] == []:
-            pass
-        else:
-            print sorted_to_anagram[sorted_word]
+def make_dict():
+    sorted_to_anagrams = {}
+    for sorted_word in sorted_word_list:
+        sorted_to_anagrams[sorted_word] = []
+    return sorted_to_anagrams
+    
+sorted_to_anagrams = make_dict()
 
-test_words(list_of_sorted_words, word_list)
+def match_sorted_word_to_anagram():
+    for word in word_list:
+        temp_word = sorted(word)
+        temp_word = ''.join(temp_word)
+        if temp_word in sorted_to_anagrams:
+            sorted_to_anagrams[temp_word].append(word)
+    final_dict = {}
+    for key in sorted_to_anagrams:
+        if len(sorted_to_anagrams[key]) > 1:
+            final_dict[key] = sorted_to_anagrams[key]
+    return final_dict
+    
+final_dict = match_sorted_word_to_anagram()
+
+def make_sorted_list_of_anagrams():
+    sorted_by_length_list = []
+    for key in final_dict:
+        sorted_by_length_list.append(final_dict[key])
+    sorted_by_length_list.sort(key=len, reverse=True)
+    return sorted_by_length_list
+    
+print make_sorted_list_of_anagrams()
