@@ -26,3 +26,37 @@
 # the words that are known to be reducible.
 # You can see my solution at thinkpython.com/code/reducible.py.
 
+word_file = open('words.txt')
+
+def make_word_list():
+    word_list = []
+    for word in word_file:
+        word_list.append(word.strip('\n'))
+    word_list.append('a')
+    word_list.append('i')
+    word_list.sort(key=len, reverse=True)
+    return word_list
+
+word_list = make_word_list()
+
+def create_map_of_children():
+    word_dict = {}
+    for word in word_list:
+        word_dict[word] = []
+    for word in word_list:
+        i = 0
+        while i <= len(word) - 1:
+            if word.replace(word[i], '') in word_dict:
+                word_dict[word].append(word.replace(word[i], ''))
+                i += 1
+            else:
+                i += 1
+    final_dict = {}
+    for key in word_dict:
+        if len(word_dict[key]) != 0:
+            final_dict[key] = word_dict[key]
+    return final_dict
+    
+map_of_children = create_map_of_children()
+
+print map_of_children
