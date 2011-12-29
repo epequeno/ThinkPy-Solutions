@@ -26,6 +26,8 @@
 # the words that are known to be reducible.
 # You can see my solution at thinkpython.com/code/reducible.py.
 
+# Current Status: Incomplete
+
 word_file = open('words.txt')
 
 def make_word_list():
