@@ -7,3 +7,7 @@
 # but it can be tricky, so the safest thing to do is restart the interpreter
 # and then import the module again.
 
+# Status: Complete
+
+# The value of __name__ is 'wc' when it is imported and __main__ when it
+# is run as a script
