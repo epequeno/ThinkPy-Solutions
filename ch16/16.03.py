@@ -1,5 +1,7 @@
 # Write a correct version of increment that doesn't contain any loops.
 
+# Current Status: Complete
+
 class Time(object):
     """ represents the time of day.
     attributes: hour, minute, second"""

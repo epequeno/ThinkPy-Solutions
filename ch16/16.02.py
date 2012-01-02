@@ -2,6 +2,8 @@
 # t1 and t2, and returns True if t1 follows t2 chronologically and False
 # otherwise. Challenge: don't use an if statement.
 
+# Current Satus: Complete
+
 class Time(object):
     """ represents the time of day.
     attributes: hour, minute, second"""

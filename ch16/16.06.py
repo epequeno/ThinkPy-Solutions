@@ -6,3 +6,5 @@
 # distance, and returns a Time object that represents the average pace (time
 # per mile).
 
+# Current Status: Incomplete
+

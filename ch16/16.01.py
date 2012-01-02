@@ -2,6 +2,8 @@
 # in the form hour:minute:second. Hint: the format sequence '%.2d' prints
 # an integer using at least two digits, including a leading zero if necessary.
 
+# Current Status: Complete
+
 class Time(object):
     """ represents the time of day.
     attributes: hour, minute, second"""
