@@ -43,7 +43,7 @@ def race_stats(time, distance):
     print ("The finish time was %.2d:%.2d:%.2d" 
     % (time.hour, time.minute, time.second))
     print "The distance was %d miles" % (distance)
-    average = mul_time(time, (1.0/distance))
+    average = mul_time(time, (1.0 / distance))
     print ("The average is: %.2d:%.2d:%.2d per mile"
     % (average.hour, average.minute, average.second))
     
