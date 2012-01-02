@@ -5,3 +5,11 @@
 # Challenge: does your function deal with leap years correctly? See 
 # wikipedia.org/wiki/Leap_year.
 
+# Current Status: Incomplete
+
+class Date(object):
+    """Representation of a date
+    attributes: month, day, year"""
+    
+def increment_date(date, increment):
+    
