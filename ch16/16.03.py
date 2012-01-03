@@ -13,7 +13,7 @@ time.second = 30
 
 def increment(time, seconds):
     print ("Original time was: %.2d:%.2d:%.2d" 
-    % (time.hour, time.minute, time.second))
+          % (time.hour, time.minute, time.second))
     
     time.second += seconds
     if time.second > 59:

@@ -29,6 +29,6 @@ def increment(time, seconds):
     new_time = time_to_int(new_time) + seconds
     new_time = int_to_time(new_time)
     print ("New time is: %.2d:%.2d:%.2d" 
-    % (new_time.hour, new_time.minute, new_time.second))
+          % (new_time.hour, new_time.minute, new_time.second))
     
 increment(time, 300)

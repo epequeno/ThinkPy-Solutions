@@ -41,10 +41,12 @@ def mul_time(time, multicand):
 
 def race_stats(time, distance):
     print ("The finish time was %.2d:%.2d:%.2d" 
-    % (time.hour, time.minute, time.second))
+          % (time.hour, time.minute, time.second))
     print "The distance was %d miles" % (distance)
+    
     average = mul_time(time, (1.0 / distance))
+    
     print ("The average is: %.2d:%.2d:%.2d per mile"
-    % (average.hour, average.minute, average.second))
+          % (average.hour, average.minute, average.second))
     
 race_stats(time, 3)
