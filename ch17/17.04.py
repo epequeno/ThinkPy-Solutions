@@ -9,10 +9,10 @@ class Point(object):
         return '(%d, %d)' % (self.x, self.y)
         
     def __add__(self, other):
-        new_x = self.x + other.x
-        new_y = self.y + other.y
-        new_point = Point(new_x, new_y)
-        return new_point
+         x = self.x + other.x
+         y = self.y + other.y
+         return Point(x, y)
+        
         
 point1 = Point(1, 3)
 point2 = Point(4, 5)
