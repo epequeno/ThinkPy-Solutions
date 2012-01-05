@@ -9,6 +9,8 @@ Created on Sun Aug  7 18:31:20 2011
 # previous exercise. Read the documentation of this method and write an 
 # invocation that counts the number of a's in 'banana'.
 
+# Current Status: Complete
+
 word = "banana"
 letter = "a"
 

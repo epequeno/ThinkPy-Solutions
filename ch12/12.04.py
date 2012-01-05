@@ -61,8 +61,7 @@ def match_sorted_word_to_anagram():
     word). Returns only words which have at least 1 anagram (>= 2 words in 
     a list)'''
     for word in word_list:
-        temp_word = sorted(word)
-        temp_word = ''.join(temp_word)
+        temp_word = ''.join(sorted(word))
         if temp_word in sorted_to_anagrams:
             sorted_to_anagrams[temp_word].append(word)
     final_dict = {}
@@ -102,7 +101,7 @@ def is_metathesis(reference_word, test_word):
     while i <= len(reference_word) - 1:
         if reference_word[i] != test_word[i]:
             mismatch_count += 1
-            i +=1
+            i += 1
         else:
             i += 1
     if mismatch_count == 2:

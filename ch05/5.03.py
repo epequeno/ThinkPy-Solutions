@@ -1,5 +1,7 @@
-# Read the following function and see if you can figure out what it does. Then run it
-# (see the examples in Chapter 4).
+# Read the following function and see if you can figure out what it does. 
+# Then run it (see the examples in Chapter 4).
+
+# Current Status: Complete
 
 def draw(t, length, n):
    if n == 0:

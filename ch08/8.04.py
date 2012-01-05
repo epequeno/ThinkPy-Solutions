@@ -8,6 +8,8 @@ Created on Sun Aug  7 17:51:00 2011
 # Modify find so that it has a third parameter, the index in word where it 
 # should start looking.
 
+# Current Status: Complete
+
 def find(word, letter, index):
     while index < len(word):
         if word[index] == letter:

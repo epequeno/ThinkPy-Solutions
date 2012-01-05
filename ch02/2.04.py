@@ -1,7 +1,9 @@
+# Current Status: Complete
+
 # Practice using the Python interpreter as a calculator:
 #
-# 1. The volume of a sphere with radius r is 4/3*(pi)r^3 . What is the volume of
-# a sphere with radius 5?
+# 1. The volume of a sphere with radius r is 4/3*(pi)r^3 . What is the volume
+# of a sphere with radius 5?
 # Hint: 392.6 is wrong!
 
 radius = 5.0

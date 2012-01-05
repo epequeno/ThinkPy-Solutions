@@ -18,6 +18,8 @@ Created on Sun Aug  7 19:24:25 2011
 # Potentially offensive jokes on the Internet are sometimes encoded in ROT13. 
 # If you are not easily offended, find and decode some of them.
 
+# Current Status: Complete
+
 def rot13(word, amount):
    rotated = ''
    for letter in word:

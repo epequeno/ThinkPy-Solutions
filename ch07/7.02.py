@@ -1,5 +1,8 @@
-# Program to aproximate square root via Newton's method
-# y = (x + (a / x)) / 2
+# Exercise 7.2 Encapsulate this loop in a function called square_root that
+# takes a as a parameter, chooses a reasonable value of x, and returns an
+# estimate of the square root of a.
+
+# Current Status: Complete
 
 n = raw_input('Square root of what?\n')
 
@@ -14,4 +17,3 @@ def square_root(n):
    print x
 
 square_root(n)
-   

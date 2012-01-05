@@ -1,3 +1,5 @@
+# Current Status: Complete
+
 # Assume that we execute the following assignment statements:
 # width = 17
 # height = 12.0
@@ -28,4 +30,3 @@
 
 # Python will do want it is told. If you want 5 of '.' then what comes out 
 # is '.....'
-

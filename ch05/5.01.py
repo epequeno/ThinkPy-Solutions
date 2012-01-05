@@ -10,6 +10,8 @@
 # converts them to integers, and uses check_fermat to check whether they 
 # violate Fermat's theorem.
 
+# Current Status: Complete
+
 a = int(raw_input('What value to use for a?\n'))
 b = int(raw_input('What value to use for b?\n'))
 c = int(raw_input('What value to use for c?\n'))

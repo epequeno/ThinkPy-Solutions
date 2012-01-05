@@ -4,6 +4,8 @@ Created on Sun Aug  7 18:42:49 2011
 
 @author: steven
 """
+# Current Status: Complete
+
 
 # The following functions are all intended to check whether a string contains
 # any lowercase letters, but at least some of them are wrong. For each function,

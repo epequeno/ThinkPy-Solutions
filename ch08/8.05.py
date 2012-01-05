@@ -8,6 +8,8 @@ Created on Sun Aug  7 18:04:28 2011
 # Encapsulate this code in a function named count, and generalize it so that it
 # accepts the string and the letter as arguments.
 
+# Current Status: Complete
+
 word = 'banana'
 target = 'a'
 

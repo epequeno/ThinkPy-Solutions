@@ -1,3 +1,5 @@
+# Current Status: Complete
+
 # If you type an integer with a leading zero, you might get a confusing
 # error:
 # >>> zipcode = 02492

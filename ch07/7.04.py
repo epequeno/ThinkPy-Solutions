@@ -21,6 +21,8 @@ Created on Mon Aug  1 19:49:05 2011
 # It should continue until the user enters 'done', and then return the value
 # of the last expression it evaluated.
 
+# Current Status: Complete
+
 def eval_loop():
     while True:
         n = raw_input('Input?\n:: ')

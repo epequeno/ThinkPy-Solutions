@@ -1,6 +1,8 @@
 # Move the last line of this program to the top, so the function call appears
 # before the definitions. Run the program and see what error message you get.
 
+# Current Status = Complete
+
 repeat_lyrics()
 
 def print_lyrics():
@@ -16,4 +18,3 @@ def repeat_lyrics():
 #   File "3.1.py", line 4, in <module>
 #     repeat_lyrics()
 # NameError: name 'repeat_lyrics' is not defined
-

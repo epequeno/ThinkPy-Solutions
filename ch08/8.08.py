@@ -9,3 +9,5 @@ Created on Sun Aug  7 18:34:54 2011
 # of i and j during each iteration. Find and fix the second error in this 
 # function.
 
+
+# Current Status: Complete

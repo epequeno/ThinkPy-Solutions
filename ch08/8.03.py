@@ -16,3 +16,5 @@ print string[:]
 
 # In both cases, the entire string is called without the slice notation or with 
 # the [:]
+
+# Current Status: Complete

@@ -15,6 +15,8 @@ Created on Mon Aug  1 19:24:39 2011
 #    print s
 #    print_n(s, n-1)
 
+# Current Status: Complete
+
 def print_n(s, n):
     i = 0
     while i < n:

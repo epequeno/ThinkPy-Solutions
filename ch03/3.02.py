@@ -2,6 +2,8 @@
 # print_lyrics after the definition of repeat_lyrics. What happens when 
 # you run this program?
 
+# Current Status: Complete
+
 def repeat_lyrics():
    print_lyrics()
    print_lyrics()

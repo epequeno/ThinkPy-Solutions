@@ -8,6 +8,8 @@ Created on Sun Aug  7 18:08:41 2011
 # Rewrite this function so that instead of traversing the string, it uses the
 # three-parameter version of find from the previous section.
 
+# Current Status: Complete
+
 def find(word, letter, index):
     while index < len(word):
         if word[index] == letter:
