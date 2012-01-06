@@ -20,3 +20,7 @@ def c(x, y, z):
 x = 1
 y = x + 1
 print c(x, y+3, x+y)
+
+# The program prints 8100. c() calls b() with the sum of 1, 5, 3 which is 9.
+# b() then calls a(9, 9). The first 9 has 1 added to it so a returns
+# 10 * 9 = 90. b() returns 90 to c() and c() sqaures it so c() returns 8100.
