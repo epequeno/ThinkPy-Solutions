@@ -5,7 +5,7 @@
 # don’t enumerate all pairs!
 # 2. Can you find any words that are three-way interlocked; that is, every 
 # third letter forms a word, starting from the first, second or third?
-#
+
+# Current Status: Incomplete
 
 def is_interlocked(words):
-   

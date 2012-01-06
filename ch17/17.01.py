@@ -2,6 +2,8 @@
 # appropriate to rewrite int_to_time as a method; it's not clear what object
 # you would invoke it on!
 
+# Current Status: Complete
+
 class Time(object):
     def time_to_int(self):
         minutes = time.hour * 60 + time.minute

@@ -7,3 +7,4 @@
 # Canvas. As a challenge, you could allow users to select and resize items 
 # on the Canvas.
 
+# Current Status: Incomplete

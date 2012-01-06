@@ -1,6 +1,8 @@
 # Write a version of move_rectangle that creates and returns a new Rectangle
 # instead of modifying the old one.
 
+# Current Status: Complete
+
 import copy
 
 class Point(object):

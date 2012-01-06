@@ -1,5 +1,7 @@
 # Write an add method for the Point class.
 
+# Current Status: Complete
+
 class Point(object):
     def __init__ (self, x=0, y=0):
         self.x = x

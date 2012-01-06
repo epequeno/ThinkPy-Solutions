@@ -3,3 +3,4 @@
 # them are typos? How many of them are common words that should be in the 
 # word list, and how many of them are really obscure?
 
+# Current Status: Incomplete

@@ -3,13 +3,15 @@
 # letters, and that returns True if the word doesnt use any of the forbidden 
 # letters.
 
+# Current Status: Complete
+
 word = str("steven")
 string = str("q")
 
 def avoids(word, string):
    if string in word:
-       return
+       return False
    else:
-       print "True"
+       return True
 
-avoids(word, string)
+print avoids(word, string)

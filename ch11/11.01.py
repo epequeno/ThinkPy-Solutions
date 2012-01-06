@@ -4,6 +4,8 @@
 # dictionary. If you did Exercise 10.8, you can compare the speed of this
 # implementation with the list in operator and the bisection search.
 
+# Current Status: Complete
+
 import uuid
 
 words = open('words.txt')

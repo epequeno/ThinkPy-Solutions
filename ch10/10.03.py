@@ -4,14 +4,16 @@
 # compared with the relational operators <, >, etc. For example, 
 # is_sorted([1,2,2]) should return True and is_sorted(['b','a']) should  
 # return False.
-#
+
+# Current Status: Complete
+
 listOne = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 #listOne = [7, 3, 6, 10, 2, 8, 4, 1, 9, 5]
 
 def is_sorted(listOne):
-   print sorted(listOne) == listOne
+   return sorted(listOne) == listOne
 
-is_sorted(listOne)
+print is_sorted(listOne)
 
 # Probably not what the book was after...
 # http://wiki.python.org/moin/HowTo/Sorting/

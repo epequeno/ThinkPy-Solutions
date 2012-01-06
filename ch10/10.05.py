@@ -10,7 +10,9 @@
 # You can read about this problem at wikipedia.org/wiki/Birthday_paradox, 
 # and you can see my solution at 
 # thinkpython.com/code/birthday.py.
-#
+
+# Current Status: Complete
+
 import random
 
 # listOne = [1, 2, 3, 4, 5]

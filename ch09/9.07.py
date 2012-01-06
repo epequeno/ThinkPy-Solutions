@@ -8,7 +8,9 @@
 # Of course there are probably 500 more but I can only think of one. What 
 # is the word? Write a program to find it. You can see my solution at 
 # thinkpython.com/code/cartalk.py.
-#
+
+# Current Status: Complete
+
 wordList = open('words.txt')
 
 def is_trip_pair(wordList):

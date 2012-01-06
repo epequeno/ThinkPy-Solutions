@@ -11,6 +11,8 @@
 # that have no "e" and compute the percentage of the words in the list have 
 # no "e."
 
+# Current Status: Complete
+
 word = open('words.txt')
 
 def words(word):

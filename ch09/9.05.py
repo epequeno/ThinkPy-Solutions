@@ -3,4 +3,6 @@
 # at least once. How many words are there that use all the vowels aeiou? How 
 # about aeiouy?
 
+# Current Status: Incomplete
+
 def uses_all(word, string):

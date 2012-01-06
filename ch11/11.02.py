@@ -12,6 +12,8 @@
 # Use get to write histogram more concisely. You should be able to 
 # eliminate the if statement
 
+# Current Status: Complete
+
 def histogram(word):
     dictionary =  dict()
     for character in word:

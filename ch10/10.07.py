@@ -3,7 +3,9 @@
 # append method and the other using the idiom t = t + [x]. Which one takes
 # longer to run? Why?
 # You can see my solution at thinkpython.com/code/wordlist.py.
-#
+
+# Current Status: Complete
+
 words = open('words.txt')
 
 def method_one(words):

@@ -2,4 +2,6 @@
 # and that returns True if the word contains only letters in the list. Can you
 # make a sentence using only the letters acefhlo? Other than "Hoe alfalfa?"
 
+# Current Status: Incomplete
+
 def uses_only(word, string):

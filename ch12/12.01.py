@@ -8,6 +8,8 @@
 # Write a function called sumall that takes any number of arguments and 
 # their sum.
 
+# Current Status: Complete
+
 def sum_all(*args):
     return sum(args)
     

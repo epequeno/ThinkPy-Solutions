@@ -3,6 +3,8 @@
 # there is any object that appears more than once in the list.
 # Use a dictionary to write a faster, simpler version of has_duplicates.
 
+# Current Status: Complete
+
 listOne = [1, 2, 3, 3, 4]
 
 def has_dups(listOne):

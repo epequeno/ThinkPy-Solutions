@@ -4,6 +4,8 @@
 # length appear in random order. Hint: see the random function in the random
 # module.
 
+# Current Status: Incomplete
+
 import random
 
 words = open('words.txt')

@@ -14,3 +14,4 @@
 # If you get stuck, you can download thinkpython.com/code/GoodKangaroo.py, 
 # which explains the problem and demonstrates a solution.
 
+# Current Status: Incomplete

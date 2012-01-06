@@ -13,7 +13,9 @@
 # and returns the index of the value in the list, if it's there, or None if 
 # it's not.
 # Or you could read the documentation of the bisect module and use that!
-#
+
+# Current Status: Incomplete
+
 import bisect
 
 def make_list():
@@ -31,4 +33,3 @@ def is_in_list(make_list):
    print make_list()
 
 #is_in_list(make_list())
-

@@ -11,7 +11,9 @@
 # Write a Python program that searches for solutions to this Puzzler. Hint: you
 # might find the string method zfill useful.
 # You can see my solution at thinkpython.com/code/cartalk.py.
-#
+
+# Current Status: Incomplete
+
 import string
 
 def ages():

@@ -4,6 +4,8 @@
 # Compare your results with the tables at 
 # wikipedia.org/wiki/Letter_frequencies.
 
+# Current Status: Complete
+
 text = 'The rain in Spain falls mainly on the plains!!!!'
 
 def make_list(x):

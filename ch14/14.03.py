@@ -4,3 +4,4 @@
 # Write a different program that opens the database and prints the contents
 # in a human-readable format.
 
+# Current Status: Incomplete

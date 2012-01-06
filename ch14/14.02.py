@@ -2,7 +2,7 @@
 # but more versatile. Read the documentation and use it to print the names
 # of the files in a given directory and its subdirectories.
 
-# Status: Complete
+# Current Status: Complete
 
 import os
 

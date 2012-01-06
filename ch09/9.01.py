@@ -1,6 +1,8 @@
 # Write a program that reads words.txt and prints only the words with 
 # more than 20 characters (not counting whitespace).
 
+# Current Status: Complete
+
 wordList = open('words.txt')
 
 def words(word):

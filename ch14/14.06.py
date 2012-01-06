@@ -13,3 +13,4 @@
 # You can read about MD5 at wikipedia.org/wiki/Md5. On a Unix system you can
 # use the program md5sum and a pipe to compute checksums from Python.
 
+# Current Status: Incomplete

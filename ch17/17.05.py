@@ -7,3 +7,4 @@
 # of the tuple to the x coordinate and the second element to the y coordinate,
 # and return a new Point with the result.
 
+# Current Status: Incomplete

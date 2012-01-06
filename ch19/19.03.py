@@ -6,3 +6,4 @@
 # of a circle that hasn't been created, and the case where the color name is 
 # invalid. You can see my solution at thinkpython.com/code/circle_demo.py.
 
+# Current Status: Incomplete

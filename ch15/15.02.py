@@ -2,6 +2,8 @@
 # named dx and dy. It should change the location of the rectangle by adding 
 # dx to the x coordinate of corner and adding dy to the y coordinate of corner.
 
+# Current Status: Complete
+
 class Point(object):
     """Represents a point in 2d space"""
     

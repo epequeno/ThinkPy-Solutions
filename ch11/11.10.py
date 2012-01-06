@@ -27,5 +27,4 @@
 # Write a program that lists all the words that solve the Puzzler. You can see
 # my solution at thinkpython.com/code/homophone.py.
 
-
-
+# Current Status: Incomplete

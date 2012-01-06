@@ -58,3 +58,4 @@
 # few of these methods and provide a GUI for applying them to images.
 # You can download a simple solution from thinkpython.com/code/ImageBrowser.py.
 
+# Current Status: Incomplete

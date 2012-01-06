@@ -1,5 +1,7 @@
 # Write a str method for the Point class. Create a Point object and print it.
 
+# Current Status: Complete
+
 class Point(object):
     def __init__ (self, x=0, y=0):
         self.x = x

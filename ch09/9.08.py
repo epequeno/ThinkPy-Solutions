@@ -14,6 +14,8 @@
 # numbers that satisfy these requirements. You can see my solution at 
 # thinkpython.com/code/cartalk.py.
 
+# Current Status: Complete
+
 def is_pal_num():
    for i in range(100000, 1000000):
        if str(i)[2:] == str(i)[:1:-1]: # last 4 
