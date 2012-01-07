@@ -20,7 +20,7 @@ def uses_only(word, string):
             return False
     return True
     
-def make_sentence(list):
+def make_sentence(x):
     count = 0
     for word in word_list:
         if uses_only(word, 'acefhlo'):

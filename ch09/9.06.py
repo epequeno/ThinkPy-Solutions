@@ -14,12 +14,14 @@ def make_list():
     
 word_list = make_list()
 
-def find_abecedarian(list):
-    word_count = 0
-    for word in list:
-        if word == ''.join(sorted(word)):
-            print word
-            word_count += 1
-    print word_count
-            
-find_abecedarian(word_list)
+def is_abecedarian(word):
+    return word == ''.join(sorted(word))
+
+def count_words():
+    count = 0
+    for word in word_list:
+        if is_abecedarian(word):
+            count += 1
+    return count
+    
+print count_words()

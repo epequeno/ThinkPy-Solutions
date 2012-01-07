@@ -14,14 +14,37 @@
 
 # Current Status: Incomplete
 
-import string
+def make_ages():
+    ages = []
+    for i in range(1, 100):
+        ages.append(str(i).zfill(2))
+    return ages
+    
+ages = make_ages()
 
-def ages():
-   age = 0
-   while age < 200:
-       newAge = str(age).zfill(2)
-       newAge2 = str(age + 36)
-       if newAge[1] == newAge2[0] and newAge[0] == newAge2[1]:
-           print newAge, newAge2
-       age += 1
-ages()
+def is_palindrome(x, y):
+    return x[::-1] == y
+    
+def main():
+    diff = 12
+    candidates = []
+    while diff <= 45:
+        count = 0
+        for i in range(0, 99):
+            if i + diff > 98:
+                break
+            elif is_palindrome(ages[i], ages[i + diff]):
+                candidates.append((ages[i], ages[i + diff]))
+                count += 1
+        if count == 8:
+            return candidates
+            diff += 1
+        else:
+            count = 0
+            diff += 1
+            candidates = []
+    return candidates
+    
+candidates = main()
+
+print candidates[6][0]
