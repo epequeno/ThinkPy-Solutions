@@ -6,7 +6,7 @@
 # 2. Can you find any words that are three-way interlocked; that is, every 
 # third letter forms a word, starting from the first, second or third?
 
-# Current Status: Incomplete
+# Current Status: Complete
 
 word_file = open('words.txt')
 
@@ -37,4 +37,32 @@ def find_interlocked():
             split_word(word)[1] in word_dict):
                 print word, split_word(word)[0], split_word(word)[1]
                 
-find_interlocked()
+# find_interlocked()
+
+def split_word2(word, i):
+    if i == 1:
+        word1 = word[::3]
+        word2 = word[1::3]
+        word3 = word[2::3]
+    elif i == 2:
+        word1 = word[1::3]
+        word2 = word[2::3]
+        word3 = word[3::3]
+    else:
+        word1 = word[2::3]
+        word2 = word[3::3]
+        word3 = word[4::3]
+    return (word1, word2, word3)
+    
+def find_3way():
+    for word in word_list:
+        for i in range(1, 4):
+            if (split_word2(word, i)[0] in word_dict and
+                split_word2(word, i)[1] in word_dict and
+                split_word2(word, i)[2] in word_dict):
+                    print (word,
+                           split_word2(word, i)[0],
+                           split_word2(word, i)[1],
+                           split_word2(word, i)[2])
+                           
+find_3way()
