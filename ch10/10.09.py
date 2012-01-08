@@ -1,25 +1,29 @@
 # Two words are a "reverse pair" if each is the reverse of the other. Write
 # a program that finds all the reverse pairs in the word list.
 
-# Current Status: Incomplete
+# Current Status: Complete
 
 word_file = open('words.txt')
 
 def make_list():
-    word_list = []
+    list_ = []
     for word in word_file:
-        word = word[:-2]
-        word_list.append(word)
-    return word_list
+        list_.append(word.strip('\r\n'))
+    return list_
     
 word_list = make_list()
 
-def find_rev_pairs(word_list):
-    results = []
+def make_dict():
+    dict_ = {}
     for word in word_list:
-        if word[::-1] in word_list:
-            results.append(word)
-            word_list.remove(word[::-1])
-    return results
-            
-print find_rev_pairs(word_list)
+        dict_[word] = None
+    return dict_
+    
+word_dict = make_dict()
+
+def find_rev_pairs():
+    for word in word_list:
+        if word[::-1] in word_dict:
+            print word, word[::-1]
+
+find_rev_pairs()
