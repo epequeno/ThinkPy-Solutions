@@ -6,12 +6,12 @@
 # Current Status: Complete
 
 word = str("steven")
-string = str("q")
+string = str("qx")
 
 def avoids(word, string):
-   if string in word:
-       return False
-   else:
-       return True
-
+    for letter in string:
+        if letter in word:
+            return False
+    return True
+    
 print avoids(word, string)

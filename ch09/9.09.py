@@ -12,7 +12,7 @@
 # might find the string method zfill useful.
 # You can see my solution at thinkpython.com/code/cartalk.py.
 
-# Current Status: Incomplete
+# Current Status: Complete
 
 def make_ages():
     ages = []
@@ -38,7 +38,6 @@ def main():
                 count += 1
         if count == 8:
             return candidates
-            diff += 1
         else:
             count = 0
             diff += 1
