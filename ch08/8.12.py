@@ -26,4 +26,7 @@ def rot13(word, amount):
        rotated += chr(ord(letter) + amount)
    return rotated
 
-print rot13("cheer", 7)
+print rot13("melon", -10)
+
+print ord('a')
+print ord('z')
