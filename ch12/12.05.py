@@ -41,24 +41,50 @@ def make_word_list():
 
 word_list = make_word_list()
 
-def create_map_of_children():
-    word_dict = {}
+def make_word_dict():
+    dict_ = {}
     for word in word_list:
-        word_dict[word] = []
-    for word in word_list:
-        i = 0
-        while i <= len(word) - 1:
-            if word.replace(word[i], '') in word_dict:
-                word_dict[word].append(word.replace(word[i], ''))
-                i += 1
-            else:
-                i += 1
-    final_dict = {}
-    for key in word_dict:
-        if len(word_dict[key]) != 0:
-            final_dict[key] = word_dict[key]
-    return final_dict
-    
-map_of_children = create_map_of_children()
+        dict_[word] = None
+    return dict_
+        
+word_dict = make_word_dict()
 
-print map_of_children
+def is_reduced(word):
+    return len(word) == 1 and (word == "i" or word == "a")
+
+results = {}
+        
+def is_reducible(word):
+    test = []
+    for i in range(0, len(word)):
+        tmp_word = [letter for letter in word]
+        tmp_word.pop(i)
+        tmp_word = ''.join(tmp_word)
+        if tmp_word in word_dict:
+            test.append(tmp_word)
+    return len(test) > 0
+
+def filter_reducible():
+    for word in word_list:
+        if is_reducible(word):
+            results[word] = True
+        else:
+            pass
+
+filter_reducible()
+
+def lol(x):
+    return x in word_dict
+    
+def wtf():
+    for word in word_dict:
+        for i in range(1, len(word)):
+            tmp = [letter for letter in word]
+            tmp.pop(i)
+            tmp = ''.join(tmp)
+            if lol(tmp):
+                results[word] = []
+                results[word].append(tmp)
+                
+wtf()
+print results

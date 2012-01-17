@@ -36,7 +36,10 @@ def rotate_word(word, amount):
     new_word = ''
     for letter in word:
         letter = letter.lower()
-        new_word += chr(normalize(ord(letter) + amount))
+        if not letter.isalpha():
+            new_word += letter
+        else:
+            new_word += chr(normalize(ord(letter) + amount))
     return new_word
     
-print rotate_word("abc", 200)
+print rotate_word("This is a test. Don't try this @ home", 13)
