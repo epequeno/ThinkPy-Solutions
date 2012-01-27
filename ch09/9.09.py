@@ -14,13 +14,13 @@
 
 # Current Status: Complete
 
-def make_ages():
-    ages = []
-    for i in range(1, 100):
-        ages.append(str(i).zfill(2))
-    return ages
+#def make_ages():
+#    ages = []
+#    for i in range(1, 100):
+#        ages.append(str(i).zfill(2))
+#    return ages
     
-ages = make_ages()
+ages = [str(i).zfill(2) for i in range(1, 100)]
 
 def is_palindrome(x, y):
     return x[::-1] == y
