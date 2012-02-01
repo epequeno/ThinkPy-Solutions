@@ -6,22 +6,27 @@
 
 word_file = open('words.txt')
 
-def make_list():
-    word_list = []
-    for word in word_file:
-        word_list.append(word.rstrip('\r\n'))
-    return word_list
-    
-word_list = make_list()
+#def make_list():
+#    word_list = []
+#    for word in word_file:
+#        word_list.append(word.rstrip('\r\n'))
+#    return word_list
+#    
+#word_list = make_list()
+
+word_list = [word.rstrip('\r\n') for word in word_file]
 
 def is_abecedarian(word):
     return word == ''.join(sorted(word))
 
-def count_words():
-    count = 0
-    for word in word_list:
-        if is_abecedarian(word):
-            count += 1
-    return count
+#def count_words():
+#    count = 0
+#    for word in word_list:
+#        if is_abecedarian(word):
+#            print word
+#            count += 1
+#    return count
     
-print count_words()
+#print count_words()
+
+print len([word for word in word_list if is_abecedarian(word)])
