@@ -20,24 +20,22 @@ def is_palindrome(x, y):
     return x[::-1] == y
     
 def main():
-    diff = 12
+    diff = 15 #moms age @ child birth from 15 to 45
     candidates = []
-    while diff <= 45:
+    while diff <= 45: 
         count = 0
         for i in range(0, 99):
-            if i + diff > 98:
-                break
+            if i + diff > 98: #IndexErr in ages fix
+                pass
             elif is_palindrome(ages[i], ages[i + diff]):
                 candidates.append((ages[i], ages[i + diff]))
                 count += 1
         if count == 8:
             return candidates
         else:
-            count = 0
             diff += 1
             candidates = []
-    return candidates
-    
+
 candidates = main()
 
-print candidates[6][0]
+print "You are now %s years old." % candidates[6][0]
