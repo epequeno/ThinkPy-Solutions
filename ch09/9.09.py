@@ -21,20 +21,17 @@ def is_palindrome(x, y):
     
 def main():
     diff = 15 #moms age @ child birth from 15 to 45
-    candidates = []
-    while diff <= 45: 
-        count = 0
+    while diff <= 45:
+        candidates = []
         for i in range(0, 99):
-            if i + diff > 98: #IndexErr in ages fix
+            if (i + diff) >= 99: #IndexErr in ages fix
                 pass
             elif is_palindrome(ages[i], ages[i + diff]):
                 candidates.append((ages[i], ages[i + diff]))
-                count += 1
-        if count == 8:
+        if len(candidates) == 8:
             return candidates
         else:
             diff += 1
-            candidates = []
 
 candidates = main()
 
