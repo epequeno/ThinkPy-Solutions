@@ -14,7 +14,7 @@
 
 # Current Status: Complete
 
-ages = [str(i).zfill(2) for i in range(1, 100)]
+ages = [str(i).zfill(2) for i in range(1, 100)] # moms max age @ 99
 
 def is_palindrome(x, y):
     return x[::-1] == y
@@ -22,17 +22,17 @@ def is_palindrome(x, y):
 def main():
     diff = 15 #moms age @ child birth from 15 to 45
     while diff <= 45:
-        candidates = []
+        palindromes = []
         for i in range(0, 99):
             if (i + diff) >= 99: #IndexErr in ages fix
                 pass
             elif is_palindrome(ages[i], ages[i + diff]):
-                candidates.append((ages[i], ages[i + diff]))
-        if len(candidates) == 8:
-            return candidates
+                palindromes.append(ages[i])
+        if len(palindromes) == 8:
+            return palindromes
         else:
             diff += 1
 
 candidates = main()
 
-print "You are now %s years old." % candidates[6][0]
+print "You are now %s years old." % candidates[5]

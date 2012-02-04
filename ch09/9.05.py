@@ -6,14 +6,7 @@
 # Current Status: Complete
 
 word_file = open('words.txt')
-
-def make_list():
-    final_list = []
-    for word in word_file:
-        final_list.append(word.strip('\r\n'))
-    return final_list
-    
-word_list = make_list()
+word_list = [word.rstrip('\r\n') for word in word_file]
 
 def uses_all(word, string):
     count = 0

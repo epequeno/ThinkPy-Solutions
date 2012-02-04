@@ -10,4 +10,5 @@ word_list = [word.rstrip('\r\n') for word in word_file]
 def is_abecedarian(word):
     return word == ''.join(sorted(word))
 
-print len([word for word in word_list if is_abecedarian(word)])
+print ("There are %s abecedarian words." 
+       % len([word for word in word_list if is_abecedarian(word)]))

@@ -24,7 +24,7 @@ def is_pal_num():
                i += 1
                if str(i)[1:-1] == str(i)[-2:0:-1]: # middle 4
                    i += 1
-                   if str(i)[:] == str(i)[::-1]: # all 6
+                   if str(i) == str(i)[::-1]: # all 6
                        print i - 3  
                    
 is_pal_num()
