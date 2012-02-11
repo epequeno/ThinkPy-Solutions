@@ -26,25 +26,8 @@
 file_of_words = open('words.txt')
 file_of_sorted_words = open('list_of_sorted_words.txt')
 
-def make_word_list():
-    '''Create a list from the txt file of dictionary words '''
-    word_list= []
-    for word in file_of_words:
-        word_list.append(word.strip('\n'))
-    return word_list
-    
-word_list = make_word_list()
-
-def make_sorted_word_list():
-    '''Create list from the txt file of dictionary words that have had
-    thier individual characters sorted alphabetically (to check anagrams
-    against)'''
-    sorted_word_list = []
-    for sorted_word in file_of_sorted_words:
-        sorted_word_list.append(sorted_word.strip('\n'))
-    return sorted_word_list
-
-sorted_word_list = make_sorted_word_list()
+word_list = [word.rstrip('\n') for word in file_of_words]
+sorted_word_list = [word.rstrip('\n') for word in file_of_sorted_words]
 
 def make_dict():
     '''Create dictionary that masp from sorted words to empty lists '''
@@ -89,7 +72,7 @@ def find_bingos():
     bingos.sort(key=len, reverse=True)
     return bingos[0]
     
-# print find_bingos()
+#print find_bingos()
 
 sorted_list_of_anagrams = make_sorted_list_of_anagrams()
 
@@ -101,9 +84,7 @@ def is_metathesis(reference_word, test_word):
     while i <= len(reference_word) - 1:
         if reference_word[i] != test_word[i]:
             mismatch_count += 1
-            i += 1
-        else:
-            i += 1
+        i += 1
     if mismatch_count == 2:
         return True
     else:
@@ -120,8 +101,6 @@ def find_metathesis_pairs():
         while i <= len(test_list) - 1:
             if is_metathesis(reference_word, test_list[i]):
                 print reference_word, test_list[i]
-                i += 1
-            else:
-                i += 1
+            i += 1
 
 find_metathesis_pairs()
