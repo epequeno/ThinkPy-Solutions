@@ -9,4 +9,32 @@
 # Also, you might consider using the string methods strip, replace and 
 # translate.
 
-# Current Status: Incomplete
+# Current Status: Complete
+
+import string
+
+punctuations = [mark for mark in string.punctuation]
+whitespaces = [char for char in string.whitespace]
+
+data = open('origin.txt', 'r')
+
+#split into words
+def words():
+    main = []
+    for line in data:
+        for item in line.split():
+            main.append(item)
+    return main
+    data.close()
+
+#remove punctuation, whitespace, uppercase
+def clean(word):
+    cleansed = ''
+    for char in word:
+        if ((char in punctuations) or (char in whitespaces)):
+            pass
+        else:
+            cleansed += char.lower()
+    return cleansed
+        
+print [clean(word) for word in words()]
