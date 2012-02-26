@@ -8,15 +8,17 @@ import string
 punctuations = [mark for mark in string.punctuation]
 whitespaces = [space for space in string.whitespace]
 
-origin = open('origin.txt', 'r')
-huck = open('huck.txt', 'r')
-frank = open('frank.txt', 'r')
-great = open('great.txt', 'r')
-meta = open('meta.txt', 'r')
-sherlock = open('sherlock.txt', 'r')
-tale = open('tale.txt', 'r')
+origin = 'origin.txt' # Origin of Species, 1859
+huck = 'huck.txt' # Huck Finn, 1884
+don = 'don.txt' # Don Quixote, 1605
+great = 'great.txt' # Expectations, 1860
+meta = 'meta.txt' # morphisis, 1915
+sherlock = 'sherlock.txt' # 1887
+divine = 'divine.txt' # Comedy, 1308
+journey = 'journey.txt'  # to the center of the earth, 1864
 
-books = [origin, huck, frank, great, meta, sherlock, tale]
+word_file = 'words.txt'
+books = [origin, huck, don, great, meta, sherlock, divine, journey]
 
 def words(book):
     list_ = []
@@ -37,7 +39,21 @@ def clean(word):
     for char in word:
         if (char in whitespaces) or (char in punctuations):
             pass
+        elif not char.isalpha():
+            pass
         else:
             result += char.lower()
     return result
 
+def stats():
+    for book in books:
+        book_words = set([clean(word) for word in words(open(book, 'r'))])
+        words_ = set([word for word in open(word_file, 'r')])
+        print "Stats for %s" % open(book, 'r').name
+        print "  There are %s non-listed words." % len(book_words - words_)
+        
+stats()
+
+print "\n\nThe words not in the word list for origin.txt:"
+print set([clean(word) for word in words(open(origin, 'r'))]) - \
+      set([word for word in open(word_file, 'r')])

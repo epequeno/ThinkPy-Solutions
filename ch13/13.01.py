@@ -42,20 +42,3 @@ def clean(word):
     return cleansed
         
 print "The book has %s 'words'" % len([clean(word) for word in words()])
-
-
-            
-
-      
-
-
-# Exercise 3
-
-
-# Exercise 4
-def set_sub():
-    word_set = set(word.rstrip('\r\n') for word in open('words.txt', 'r'))
-    book_set = set(clean(word) for word in words_sans_header())
-    return list(book_set - word_set)
-    
-print set_sub()
