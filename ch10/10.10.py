@@ -9,14 +9,7 @@
 # Current Status: Complete
 
 word_file = open('words.txt')
-
-def make_list():
-    list_ = []
-    for word in word_file:
-        list_.append(word.strip('\r\n'))
-    return list_
-    
-word_list = make_list()
+word_list = [word.rstrip('\r\n') for word in word_file]
 
 def make_dict():
     dict_ = {}
@@ -40,29 +33,23 @@ def find_interlocked():
 # find_interlocked()
 
 def split_word2(word, i):
-    if i == 1:
-        word1 = word[::3]
-        word2 = word[1::3]
-        word3 = word[2::3]
-    elif i == 2:
-        word1 = word[1::3]
-        word2 = word[2::3]
-        word3 = word[3::3]
-    else:
-        word1 = word[2::3]
-        word2 = word[3::3]
-        word3 = word[4::3]
+    word1 = word[i::3]
+    word2 = word[i + 1::3]
+    word3 = word[i + 2::3]
     return (word1, word2, word3)
+    
+#TODO: make split_word2 into a generator
     
 def find_3way():
     for word in word_list:
-        for i in range(1, 4):
-            if (split_word2(word, i)[0] in word_dict and
-                split_word2(word, i)[1] in word_dict and
-                split_word2(word, i)[2] in word_dict):
+        for i in range(0, 3):
+            split_ = split_word2(word, i)
+            if (split_[0] in word_dict and
+                split_[1] in word_dict and
+                split_[2] in word_dict):
                     print (word,
-                           split_word2(word, i)[0],
-                           split_word2(word, i)[1],
-                           split_word2(word, i)[2])
+                           split_[0],
+                           split_[1],
+                           split_[2])
                            
 find_3way()
