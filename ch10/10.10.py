@@ -8,8 +8,7 @@
 
 # Current Status: Complete
 
-word_file = open('words.txt')
-word_list = [word.rstrip('\r\n') for word in word_file]
+word_list = [word.rstrip('\r\n') for word in open('words.txt', 'r')]
 
 def make_dict():
     dict_ = {}
@@ -38,18 +37,18 @@ def split_word2(word, i):
     word3 = word[i + 2::3]
     return (word1, word2, word3)
     
-#TODO: make split_word2 into a generator
-    
 def find_3way():
+    answer = []
     for word in word_list:
         for i in range(0, 3):
             split_ = split_word2(word, i)
             if (split_[0] in word_dict and
                 split_[1] in word_dict and
                 split_[2] in word_dict):
-                    print (word,
+                    answer.append((word,
                            split_[0],
                            split_[1],
-                           split_[2])
+                           split_[2]))
                            
 find_3way()
+print "Done"

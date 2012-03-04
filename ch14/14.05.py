@@ -43,3 +43,28 @@
 # because they don't display the ads.  Using a screen scraper violates
 # the terms of service for some sites; that's why this is a secret
 # exercise!
+
+# Current Status: Complete
+
+import requests
+import re
+
+user_input = str(raw_input('Zip Code?: '))
+
+def get_stats(user_input):
+    if len(user_input) != 5:
+        print "Invalid input: Zip codes need to be 5 digits long"
+    else:
+        url = "http://www.uszip.com/zip/" + user_input
+        data = requests.get(url).content
+
+        city = re.findall(r'\<title\>Zip\ code\ for\ (.*?)\ -\ ', data)
+        population = re.findall(r'Population:\<\/b\>\<\/td\>\<td\>(.*?)\ \<span', data)
+        if (len(city) == 0 or len(population) == 0):
+            print "Info not found"
+        else:
+            print "\nStats for %s: " % user_input
+            print "Name: %s" % city[0]
+            print "Population: %s" % population[0]
+        
+get_stats(user_input)
