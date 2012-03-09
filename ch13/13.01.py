@@ -41,6 +41,4 @@ def clean(word):
             cleansed += char.lower()
     return cleansed
         
-#print "The book has %s 'words'" % len([clean(word) for word in words()])
-
-print [clean(word) for word in words()]
+print "The book has %s 'words'" % len([clean(word) for word in words()])
