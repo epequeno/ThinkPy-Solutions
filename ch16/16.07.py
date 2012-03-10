@@ -1,47 +1,77 @@
-# Write a class definition for a Date object that has attributes day, month
-# and year. Write a function called increment_date that takes a Date object,
-# date and an integer, n, and returns a new Date object that represents the
+# Write a class definition for a date_ object that has attributes day, month
+# and year. Write a function called increment_date that takes a date object,
+# date_ and an integer, n, and returns a new date_ object that represents the
 # day n days after date. Hint: "Thirty days hath September..."
 # Challenge: does your function deal with leap years correctly? See 
 # wikipedia.org/wiki/Leap_year.
 
-# Current Status: Incomplete
+# Current Status: Complete
 
-rules = {1:31, 2:28, 3:31, 4:30, 5:31, 6:30, 7:31, 8:31, 9:30, 10:31, 11:30, 12:31}
+rules = {1:31,
+         2:28,
+         3:31,
+         4:30,
+         5:31,
+         6:30,
+         7:31,
+         8:31,
+         9:30,
+         10:31,
+         11:30,
+         12:31}
 
-class Date(object):
+names = {1:"January",
+         2:"Feburary",
+         3:"March",
+         4:"April",
+         5:"May",
+         6:"June",
+         7:"July",
+         8:"August",
+         9:"September",
+         10:"October",
+         11:"November",
+         12:"December"}
+
+
+class date(object):
     """Representation of a date
     attributes: month, day, year"""
     
-date = Date()
-date.month = 12
-date.day = 31
+date = date()
+date.month = 1
+date.day = 3
 date.year = 2012
-    
-def increment(date, inc):
-    while True:
-        days_left = rules[date.month] - date.day
-        if (date.year % 4 == 0) and (date.month == 2):
-            rules[date.month] = 29
 
-        # TODO: Make this a switch jeez
-        if inc < days_left:
-            date.day += inc
+def increment(date, inc):
+    print "Starting: %s %s, %s" % (names[date.month], date.day, date.year)
+    print "Moving forward %s days" %  inc
+    date_ = date
+    while True:
+        rules[2] = 28
+        if (date_.year % 4 == 0) and (date_.month == 2):
+            rules[date_.month] = 29
+        elif date_.month != 2:
+            pass
+        
+        days_left = rules[date_.month] - date_.day
+
+        if inc <= days_left:
+            date_.day += inc
             break
         elif inc == 0:
-            date.day = rules[date.month]
+            date_.day = rules[date_.month]
             break
         elif inc < 0:
-            date.day = rules[date.month] + inc
+            date_.day = rules[date_.month] + inc
             break
         else:
-            inc -= rules[date.month]
-            date.month += 1
+            inc -= rules[date_.month]
+            date_.month += 1
 
-        if date.month > 12:
-            date.year += 1
-            date.month = 1
-            
-    print date.month, date.day, date.year
+        if date_.month > 12:
+            date_.year += 1
+            date_.month = 1
+    print "Ending: %s %s, %s" % (names[date_.month], date_.day, date_.year)
     
-increment(date, 1)
+increment(date, 365)
