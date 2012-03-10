@@ -39,21 +39,25 @@ class date(object):
     attributes: month, day, year"""
     
 date = date()
-date.month = 12
-date.day = 13
+date.month = 10
+date.day = 30
 date.year = 2012
 
 def increment_date(date, inc):
-    print "Starting: %s %s, %s" % (names[date.month], date.day, date.year)
-    print "Moving forward %s days" %  inc
     date_ = date
+    if (date_.year % 4 == 0):
+        print "Starting: %s %s, %s (Leap year!)" \
+        % (names[date.month], date.day, date.year)
+    else:
+        print "Starting: %s %s, %s" % (names[date.month], date.day, date.year)
+    print "Moving forward %s days" %  inc
     while True:
         rules[2] = 28
-        if (date_.year % 4 == 0) and (date_.month == 2):
-            rules[date_.month] = 29
+        if (date_.year % 4 == 0):
+            rules[2] = 29
         elif date_.month != 2:
             pass
-        
+    
         days_left = rules[date_.month] - date_.day
 
         if inc <= days_left:
@@ -72,6 +76,8 @@ def increment_date(date, inc):
         if date_.month > 12:
             date_.year += 1
             date_.month = 1
+    if ((date_.year - 1) % 4 == 0) and date_.month != 2:
+        date_.day -= 1
     print "Ending: %s %s, %s" % (names[date_.month], date_.day, date_.year)
     
 increment_date(date, 365)
