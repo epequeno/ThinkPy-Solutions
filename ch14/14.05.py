@@ -52,10 +52,7 @@ import re
 user_input = str(raw_input("Zip Code? "))
 
 def is_len_valid(user_input):
-    if len(user_input) != 5:
-        return False
-    else:
-        return True
+    return len(user_input) == 5
         
 def is_all_num(user_input):
     flag = True
@@ -64,9 +61,6 @@ def is_all_num(user_input):
             flag = False
             return flag
     return flag
-
-data = requests.get("http://www.uszip.com/zip/" + user_input).content
-data_list = [line for line in data.splitlines()]
 
 def is_query_valid(data):
     return "<title>" in data_list[1]
@@ -82,5 +76,7 @@ def main():
         city = re.findall(r'\<title\>Zip\ code\ for\ (.*?)\ -\ ', data)
         population = re.findall(r'Population:\<\/b\>\<\/td\>\<td\>(.*?)\ \<span', data)
         print "%s (%s) has a population of %s" % (city[0], user_input, population[0])
-    
+
+data = requests.get("http://www.uszip.com/zip/" + user_input).content
+data_list = [line for line in data.splitlines()]
 main()

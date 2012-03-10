@@ -11,8 +11,8 @@ class Point(object):
 point_one = Point()
 point_two = Point()
 
-point_one.x, point_one.y = 2.0, 3.0
-point_two.x, point_two.y = 4.0, 6.0
+point_one.x, point_one.y = 6.0, 1.0
+point_two.x, point_two.y = 2.0, 6.0
 
 def distance(p1, p2):
     """Returns the distance between two points in 2d space."""
@@ -22,4 +22,4 @@ def distance(p1, p2):
     
 print "The distance between point one at (%g,%g)" % (point_one.x, point_one.y),
 print "and point two at (%g,%g)" % (point_two.x, point_two.y),
-print "is", distance(point_one, point_two)
+print "is %.3f" % distance(point_one, point_two)
