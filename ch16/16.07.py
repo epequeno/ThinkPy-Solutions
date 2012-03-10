@@ -39,8 +39,8 @@ class date(object):
     attributes: month, day, year"""
     
 date = date()
-date.month = 1
-date.day = 3
+date.month = 12
+date.day = 13
 date.year = 2012
 
 def increment_date(date, inc):
