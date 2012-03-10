@@ -7,6 +7,8 @@
 
 # Current Status: Complete
 
+import copy
+
 # month:days in month
 rules = {1:31,
          2:28,
@@ -35,25 +37,25 @@ names = {1:"January",
          12:"December"}
 
 
-class date(object):
+class Date(object):
     """Representation of a date
     attributes: month, day, year"""
     
-date = date()
+date = Date()
 date.month = 10
 date.day = 30
 date.year = 2012
 
 def increment_date(date, inc):
-    date_ = date
+    date_ = copy.deepcopy(date)
     
     # adjust ui for leap year
-    if (date_.year % 4 == 0):
-        print "Starting: %s %s, %s (Leap year!)" \
-        % (names[date.month], date.day, date.year)
-    else:
-        print "Starting: %s %s, %s" % (names[date.month], date.day, date.year)
-    print "Moving forward %s days" %  inc
+#    if (date_.year % 4 == 0):
+#        print "Starting: %s %s, %s (Leap year!)" \
+#        % (names[date.month], date.day, date.year)
+#    else:
+#        print "Starting: %s %s, %s" % (names[date.month], date.day, date.year)
+#    print "Moving forward %s days" %  inc
     
     
     while True:
@@ -67,7 +69,7 @@ def increment_date(date, inc):
     
         days_left = rules[date_.month] - date_.day
         
-        # decrease 'inc' based on days_left
+        # set date_.day based on value of days_left and inc
         if inc <= days_left:
             date_.day += inc
             break
@@ -91,6 +93,10 @@ def increment_date(date, inc):
         date_.day -= 1
         
     #final ui element
-    print "Ending: %s %s, %s" % (names[date_.month], date_.day, date_.year)
+#    print "Ending: %s %s, %s" % (names[date_.month], date_.day, date_.year)
+    return date_
     
-increment_date(date, 365)
+newDate = increment_date(date, 365)
+
+print date, "%s %s, %s" % (names[date.month], date.day, date.year)
+print newDate, "%s %s, %s" % (names[newDate.month], newDate.day, newDate.year)
