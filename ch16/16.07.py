@@ -7,6 +7,7 @@
 
 # Current Status: Complete
 
+# month:days in month
 rules = {1:31,
          2:28,
          3:31,
@@ -45,13 +46,19 @@ date.year = 2012
 
 def increment_date(date, inc):
     date_ = date
+    
+    # adjust ui for leap year
     if (date_.year % 4 == 0):
         print "Starting: %s %s, %s (Leap year!)" \
         % (names[date.month], date.day, date.year)
     else:
         print "Starting: %s %s, %s" % (names[date.month], date.day, date.year)
     print "Moving forward %s days" %  inc
+    
+    
     while True:
+        
+        # adjust feb for leap year
         rules[2] = 28
         if (date_.year % 4 == 0):
             rules[2] = 29
@@ -59,7 +66,8 @@ def increment_date(date, inc):
             pass
     
         days_left = rules[date_.month] - date_.day
-
+        
+        # decrease 'inc' based on days_left
         if inc <= days_left:
             date_.day += inc
             break
@@ -72,12 +80,17 @@ def increment_date(date, inc):
         else:
             inc -= rules[date_.month]
             date_.month += 1
-
+        
+        # increment year if month counter pushes past 12
         if date_.month > 12:
             date_.year += 1
             date_.month = 1
+            
+    # final adjustment of date if previous year was a leap year
     if ((date_.year - 1) % 4 == 0) and date_.month != 2:
         date_.day -= 1
+        
+    #final ui element
     print "Ending: %s %s, %s" % (names[date_.month], date_.day, date_.year)
     
 increment_date(date, 365)
