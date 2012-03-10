@@ -1,6 +1,6 @@
-# Write a class definition for a date_ object that has attributes day, month
+# Write a class definition for a date object that has attributes day, month
 # and year. Write a function called increment_date that takes a date object,
-# date_ and an integer, n, and returns a new date_ object that represents the
+# date and an integer, n, and returns a new date object that represents the
 # day n days after date. Hint: "Thirty days hath September..."
 # Challenge: does your function deal with leap years correctly? See 
 # wikipedia.org/wiki/Leap_year.
@@ -43,7 +43,7 @@ date.month = 1
 date.day = 3
 date.year = 2012
 
-def increment(date, inc):
+def increment_date(date, inc):
     print "Starting: %s %s, %s" % (names[date.month], date.day, date.year)
     print "Moving forward %s days" %  inc
     date_ = date
@@ -74,4 +74,4 @@ def increment(date, inc):
             date_.month = 1
     print "Ending: %s %s, %s" % (names[date_.month], date_.day, date_.year)
     
-increment(date, 365)
+increment_date(date, 365)
