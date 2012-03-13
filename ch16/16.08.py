@@ -74,7 +74,9 @@ def print_birthday(test_birthday):
         age = this_year - test_birthday.year
     print "You are %s years old." % age
     
-    tmp_birthday = birthday(this_year, test_birthday.month, test_birthday.day)
+    tmp_birthday = birthday(this_year,
+                            test_birthday.month,
+                            test_birthday.day)
     
     till_birthday = tmp_birthday.date - date.datetime
     
@@ -86,7 +88,5 @@ def print_birthday(test_birthday):
         print till_birthday, "until your next birthday!"
     else:
         print till_birthday, "until your next birthday!"
-    
-    
     
 print_birthday(test_birthday)   
