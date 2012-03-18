@@ -30,7 +30,7 @@ word_list = [word.rstrip('\n') for word in file_of_words]
 sorted_word_list = [word.rstrip('\n') for word in file_of_sorted_words]
 
 def make_dict():
-    '''Create dictionary that masp from sorted words to empty lists '''
+    '''Create dictionary that maps from sorted words to empty lists '''
     sorted_to_anagrams = {}
     for sorted_word in sorted_word_list:
         sorted_to_anagrams[sorted_word] = []
@@ -85,10 +85,7 @@ def is_metathesis(reference_word, test_word):
         if reference_word[i] != test_word[i]:
             mismatch_count += 1
         i += 1
-    if mismatch_count == 2:
-        return True
-    else:
-        return False
+    return mismatch_count == 2
 
 def find_metathesis_pairs():
     '''For each list of anagrams produced by make_sorted_list_of_anagrams, 

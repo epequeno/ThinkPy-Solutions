@@ -20,26 +20,22 @@ Created on Sun Aug  7 19:24:25 2011
 
 # Current Status: Complete
 
-def normalize(x):
-    if x > 122:
-        while x > 122:
-            x -= 26
-        return x
-    elif x < 97:
-        while x < 97:
-            x += 26
-        return x
-    else:
-        return x
-        
+def normalize(x, lower, upper):
+    while x > upper:
+        x -= 26
+    while x < lower:
+        x += 26
+    return x
+
 def rotate_word(word, amount):
     new_word = ''
     for letter in word:
-        letter = letter.lower()
-        if not letter.isalpha():
+        if letter.isupper():
+            new_word += chr(normalize(ord(letter) + amount, 65, 90))
+        elif not letter.isalpha():
             new_word += letter
         else:
-            new_word += chr(normalize(ord(letter) + amount))
+            new_word += chr(normalize(ord(letter) + amount, 97, 122))
     return new_word
     
-print rotate_word("This is a test. Don't try this @ home", 13)
+print rotate_word("This is a test. Do not try this @ home!", 13)
