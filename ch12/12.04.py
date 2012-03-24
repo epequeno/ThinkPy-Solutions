@@ -23,20 +23,18 @@
 
 # Status: Complete
 
-file_of_words = open('words.txt')
-file_of_sorted_words = open('list_of_sorted_words.txt')
+file_of_words = open('words.txt', 'r')
+fingerprint_file = open('list_of_sorted_words.txt', 'r')
 
 word_list = [word.rstrip('\n') for word in file_of_words]
-sorted_word_list = [word.rstrip('\n') for word in file_of_sorted_words]
+fingerprint_list = [word.rstrip('\n') for word in fingerprint_file]
 
-def make_dict():
-    '''Create dictionary that maps from sorted words to empty lists '''
-    sorted_to_anagrams = {}
-    for sorted_word in sorted_word_list:
-        sorted_to_anagrams[sorted_word] = []
-    return sorted_to_anagrams
-    
-sorted_to_anagrams = make_dict()
+# fp = fingerprint
+
+fp_to_anagram = dict()
+
+for fp in fingerprint_list:
+    fp_to_anagram[fp] = []
 
 def match_sorted_word_to_anagram():
     '''Checks if a sorted word from the word_list is already in the dictionary
@@ -45,12 +43,12 @@ def match_sorted_word_to_anagram():
     a list)'''
     for word in word_list:
         temp_word = ''.join(sorted(word))
-        if temp_word in sorted_to_anagrams:
-            sorted_to_anagrams[temp_word].append(word)
+        if temp_word in fp_to_anagram:
+            fp_to_anagram[temp_word].append(word)
     final_dict = {}
-    for key in sorted_to_anagrams:
-        if len(sorted_to_anagrams[key]) > 1:
-            final_dict[key] = sorted_to_anagrams[key]
+    for key in fp_to_anagram:
+        if len(fp_to_anagram[key]) > 1:
+            final_dict[key] = fp_to_anagram[key]
     return final_dict
     
 final_dict = match_sorted_word_to_anagram()

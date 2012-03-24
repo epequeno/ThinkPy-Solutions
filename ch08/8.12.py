@@ -20,6 +20,9 @@ Created on Sun Aug  7 19:24:25 2011
 
 # Current Status: Complete
 
+# ord(A, Z) = 65, 90
+# ord(a, z) = 97, 122
+
 def normalize(x, lower, upper):
     while x > upper:
         x -= 26
@@ -38,4 +41,4 @@ def rotate_word(word, amount):
             new_word += chr(normalize(ord(letter) + amount, 97, 122))
     return new_word
     
-print rotate_word("This is a test. Do not try this @ home!", 13)
+print rotate_word("This is a test. Don't try this @ home!", 13)

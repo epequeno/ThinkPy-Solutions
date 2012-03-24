@@ -57,7 +57,7 @@ def is_len_valid(user_input):
 def is_all_num(user_input):
     flag = True
     for char in user_input:
-        if char.isdigit() == False:
+        if not char.isdigit():
             flag = False
             return flag
     return flag
@@ -66,11 +66,11 @@ def is_query_valid(data):
     return "<title>" in data_list[1]
 
 def main():
-    if is_len_valid(user_input) == False:
+    if not is_len_valid(user_input):
         print "The input must have 5 digits"
-    elif is_all_num(user_input) == False:
+    elif not is_all_num(user_input):
         print "Zip Codes don't have letters!"
-    elif is_query_valid(data) == False:
+    elif not is_query_valid(data):
         print "Information for %s not found." % user_input
     else:
         city = re.findall(r'\<title\>Zip\ code\ for\ (.*?)\ -\ ', data)

@@ -11,7 +11,7 @@
 
 import datetime
 
-class today(object):
+class Today(object):
     def __init__(self):
         self.date = datetime.datetime.today()
         self.weekday = self.date.weekday()
@@ -27,7 +27,7 @@ class today(object):
                                           self.time().minute,
                                           self.time().second)
         
-class birthday(object):
+class Birthday(object):
     def __init__(self, 
                  year=2000, 
                  month=01,
@@ -48,7 +48,7 @@ class birthday(object):
         self.month = self.date.month
         self.time = self.date.time
                 
-date = today()
+date = Today()
 
 rules = {0:"Monday",
          1:"Tuesday",
@@ -63,7 +63,7 @@ def print_day():
 
 print_day()
 
-test_birthday = birthday(1980, 3, 1)
+test_birthday = Birthday(1976, 2, 17)
 
 def print_birthday(test_birthday):
     this_year = date.year
@@ -74,14 +74,14 @@ def print_birthday(test_birthday):
         age = this_year - test_birthday.year
     print "You are %s years old." % age
     
-    tmp_birthday = birthday(this_year,
+    tmp_birthday = Birthday(this_year,
                             test_birthday.month,
                             test_birthday.day)
     
     till_birthday = tmp_birthday.date - date.datetime
     
     if till_birthday.total_seconds() < 0:
-        tmp_birthday = birthday(this_year + 1,
+        tmp_birthday = Birthday(this_year + 1,
                                 test_birthday.month,
                                 test_birthday.day)
         till_birthday = tmp_birthday.date - date.datetime
