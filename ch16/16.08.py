@@ -11,82 +11,41 @@
 
 import datetime
 
-class Today(object):
-    def __init__(self):
-        self.date = datetime.datetime.today()
-        self.weekday = self.date.weekday()
-        self.day = self.date.day
-        self.year = self.date.year
-        self.month = self.date.month
-        self.time = self.date.time
-        self.second = self.date.second
-        self.datetime = datetime.datetime(self.year,
-                                          self.month,
-                                          self.day,
-                                          self.time().hour,
-                                          self.time().minute,
-                                          self.time().second)
-        
-class Birthday(object):
-    def __init__(self, 
-                 year=2000, 
-                 month=01,
-                 day=01,
-                 hour=0,
-                 minute=0,
-                 second=0):
-        self.date = datetime.datetime(year,
-                                      month,
-                                      day,
-                                      hour,
-                                      minute,
-                                      second)
-        self.year = self.date.year
-        self.weekday = self.date.weekday()
-        self.day = self.date.day
-        self.year = self.date.year
-        self.month = self.date.month
-        self.time = self.date.time
-                
-date = Today()
+rules = {0:"Sunday",
+         1:"Monday",
+         2:"Tuesday",
+         3:"Wednesday",
+         4:"Thursday",
+         5:"Friday",
+         6:"Saturday"}
 
-rules = {0:"Monday",
-         1:"Tuesday",
-         2:"Wednesday",
-         3:"Thursday",
-         4:"Friday",
-         5:"Saturday",
-         6:"Sunday"}
+class Time(object):
+    now = datetime.datetime.now()
+    
+    def __init__(self, year=2000, month=01, day=01, hour=0, minute=0, second=0):
+        self.date = datetime.datetime(year, month, day, hour, minute, second)
+    
+now = Time()
+birthday = Time(1983, 12, 13, 12, 0, 0)
 
-def print_day():
-    print "Today is %s" % rules[date.weekday]
+def day_of_week():
+    day = now.now.weekday()
+    return "Today is %s" % rules[day]
 
-print_day()
-
-test_birthday = Birthday(1976, 2, 17)
-
-def print_birthday(test_birthday):
-    this_year = date.year
-    this_month = date.month
-    if test_birthday.date.month > this_month:
-        age = (this_year - 1) - test_birthday.year
-    else:
-        age = this_year - test_birthday.year
+def birthday_stats(birthday):
+    age = now.now.year - birthday.date.year
+    if now.now.month <= birthday.date.month:
+        age -= 1
     print "You are %s years old." % age
     
-    tmp_birthday = Birthday(this_year,
-                            test_birthday.month,
-                            test_birthday.day)
+    time_till = now.now - birthday.date
+    print "There are %s days," % (time_till.days - (age * 365))    
+    answer = str(time_till).split()[2]
+    answer = answer.split(":")
+    print answer[0] + " hours,"
+    print answer[1] + " mins, and"
+    print answer[2][:2] + " seconds until your next birthday."
     
-    till_birthday = tmp_birthday.date - date.datetime
     
-    if till_birthday.total_seconds() < 0:
-        tmp_birthday = Birthday(this_year + 1,
-                                test_birthday.month,
-                                test_birthday.day)
-        till_birthday = tmp_birthday.date - date.datetime
-        print till_birthday, "until your next birthday!"
-    else:
-        print till_birthday, "until your next birthday!"
-    
-print_birthday(test_birthday)   
+print day_of_week()
+birthday_stats(birthday)

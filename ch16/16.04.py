@@ -38,3 +38,10 @@ def increment(time, seconds):
     print "memory id of object 'new_time': ", id(new_time)
 
 increment(time, 300)
+
+#output
+#Original time was: 11:59:30
+#Plus 300 seconds
+#New time is: 12:04:30
+#memory id of object 'time':  139993281395984
+#memory id of object 'new_time':  139993281175376

@@ -49,6 +49,12 @@ def find_3way():
                            split_[0],
                            split_[1],
                            split_[2]))
+    return answer
                            
-find_3way()
+print find_3way()
 print "Done"
+
+#output
+#[('abacuses', 'ace', 'bus', 'as'), ('abalone', 'ale', 'bo', 'an'),
+# ('abalones', 'ale', 'bos', 'an'), ('abased', 'as', 'be', 'ad'),
+# ('abaser', 'as', 'be',...

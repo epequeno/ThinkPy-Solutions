@@ -35,4 +35,7 @@ point1 = Point(3, 4)
 point2 = (4, 3)
 point3 = point1 + point2
 point4 = point2 + point1
-print point4
+print point3, point4
+
+#output
+#(7, 6) (7, 6)
