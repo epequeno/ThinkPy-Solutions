@@ -21,12 +21,11 @@ rules = {0:"Sunday",
 
 class Time(object):
     now = datetime.datetime.now()
-    
-    def __init__(self, year=1, month=01, day=01, hour=0, minute=0, second=0):
+    def __init__(self, year=1, month=1, day=1, hour=0, minute=0, second=0):
         self.date = datetime.datetime(year, month, day, hour, minute, second)
     
 today = Time().now
-birthday = Time(1983, 4, 13, 0, 0, 0).date
+birthday = Time(2000, 3, 30).date
 
 def day_of_week():
     return "1) Today is %s" % rules[today.weekday()]
@@ -40,8 +39,10 @@ def birthday_stats(birthday):
         else:
             age -= 1
             
-    birthday_ = Time(today.year, birthday.month, birthday.day).date
-    till_birthday = str(today - birthday_).split()
+    t = today
+    b = birthday
+    birthday_ = Time(t.year, b.month, b.day).date
+    till_birthday = str(birthday_ - today).split()
     
     if len(till_birthday) > 1:
         days = int(till_birthday[0])
@@ -54,8 +55,10 @@ def birthday_stats(birthday):
     mins = time[1]
     secs = time[2][:2]
     
-    if (days > 0) and (days != 365):
-        days = 365 - days
+    if (days < 0) and (days != 365):
+        days = 365 + days
+    elif (days == 365):
+        days = 0            
     else:
         days = abs(days)
         
