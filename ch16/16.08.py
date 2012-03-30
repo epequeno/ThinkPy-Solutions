@@ -22,30 +22,46 @@ rules = {0:"Sunday",
 class Time(object):
     now = datetime.datetime.now()
     
-    def __init__(self, year=2000, month=01, day=01, hour=0, minute=0, second=0):
+    def __init__(self, year=1, month=01, day=01, hour=0, minute=0, second=0):
         self.date = datetime.datetime(year, month, day, hour, minute, second)
     
-now = Time()
-birthday = Time(1983, 12, 13, 12, 0, 0)
+today = Time().now
+birthday = Time(1983, 4, 13, 0, 0, 0).date
 
 def day_of_week():
-    day = now.now.weekday()
-    return "Today is %s" % rules[day]
+    return "1) Today is %s" % rules[today.weekday()]
 
 def birthday_stats(birthday):
-    age = now.now.year - birthday.date.year
-    if now.now.month <= birthday.date.month:
-        age -= 1
-    print "You are %s years old." % age
+    age = today.year - birthday.year    
     
-    time_till = now.now - birthday.date
-    print "There are %s days," % (time_till.days - (age * 365))    
-    answer = str(time_till).split()[2]
-    answer = answer.split(":")
-    print answer[0] + " hours,"
-    print answer[1] + " mins, and"
-    print answer[2][:2] + " seconds until your next birthday."
+    if (birthday.month >= today.month):
+        if (birthday.day <= today.day):
+            pass
+        else:
+            age -= 1
+            
+    birthday_ = Time(today.year, birthday.month, birthday.day).date
+    till_birthday = str(today - birthday_).split()
     
+    if len(till_birthday) > 1:
+        days = int(till_birthday[0])
+        time = till_birthday[2].split(":")
+    else:
+        days = 365
+        time = till_birthday[0].split(":")
     
+    hours = time[0]
+    mins = time[1]
+    secs = time[2][:2]
+    
+    if (days > 0) and (days != 365):
+        days = 365 - days
+    else:
+        days = abs(days)
+        
+    print "2) You are %s years old; %sd:%sh:%sm:%ss until your next birthday." \
+    % (age, days, hours, mins, secs)
+        
+
 print day_of_week()
 birthday_stats(birthday)
