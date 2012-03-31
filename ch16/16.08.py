@@ -25,23 +25,21 @@ class Time(object):
         self.date = datetime.datetime(year, month, day, hour, minute, second)
     
 today = Time().now
-birthday = Time(2000, 3, 30).date
+birthday = Time(1983, 3, 31).date
 
 def day_of_week():
     return "1) Today is %s" % rules[today.weekday()]
 
 def birthday_stats(birthday):
-    age = today.year - birthday.year    
+    age = today.year - birthday.year  
+    if (birthday.month == today.month) and (birthday.day <= today.day):
+        pass
+    elif birthday.month < today.month:
+        pass
+    else:
+        age -= 1
     
-    if (birthday.month >= today.month):
-        if (birthday.day <= today.day):
-            pass
-        else:
-            age -= 1
-            
-    t = today
-    b = birthday
-    birthday_ = Time(t.year, b.month, b.day).date
+    birthday_ = Time(today.year, birthday.month, birthday.day).date
     till_birthday = str(birthday_ - today).split()
     
     if len(till_birthday) > 1:
