@@ -32,6 +32,7 @@ def clean(myfile):
 words_list = clean(words_file)
 
 def make_anagram_dict(mylist):
+    '''Main grunt work. Returns dict which maps fingerprints to anagrams based on that fingerprint.Iterates through the list of words once to create a dict with the fingerprints. Iterates again to append matches to the fingerprints dict. Finally, iterating through the dict to filter out fingerprints that produced a list of length 1'''
     fingerprints = dict()
     for word in mylist:
         fp = ''.join(sorted(word))
@@ -55,13 +56,14 @@ def make_anagram_dict(mylist):
 words_dict = make_anagram_dict(words_list)
 
 def print_anagrams(mydict):
+    '''Uses a genrator to cal and print 5 items from mydict'''
     fp = (fp for fp in mydict)
 
     print "Sample from anagram dict:"
     i = 0
     while i < 5:
-        next = fp.next()
-        print "%s) %s:" % ((i + 1), next), mydict[next]
+        fp_next = fp.next()
+        print "%s) %s:" % ((i + 1), fp_next), mydict[fp_next]
         i += 1
 
     print "..."
@@ -71,6 +73,7 @@ def print_anagrams(mydict):
 print_anagrams(words_dict)
 
 def sort_anagrams(mydict):
+    '''Returns a list of lists containing all anagram matches. The longest list (most anagrams) is at the top'''
     anagrams_lists = []
     for fp in mydict:
         anagrams_lists.append(mydict[fp])
@@ -86,6 +89,7 @@ def sort_anagrams(mydict):
 sort_anagrams(words_dict)
 
 def find_bingos(mydict):
+    '''Filters mydict for keys of length 8. Sorts a list of the values (lists)and sorts by length in reverse order'''
     candidates = [mydict[key] for key in mydict if len(key) == 8]
     candidates.sort(key=len, reverse=True)
 
@@ -99,20 +103,20 @@ def find_bingos(mydict):
 find_bingos(words_dict)
 
 def is_metathesis(reference, test):
-        if len(reference) != len(test):
-            return False
-        i = 0
-        count = 0
-        while i < (len(reference) - 1):
-            if reference[i] != test[i]:
-                count += 1
-            i += 1
-        if count == 2:
-            return True
-        return False
+    '''If two anagrams mismatch exactly twice they are metathesis pairs. Caution: This function assumes strings of equal length'''
+    i = 0
+    count = 0
+    while i < (len(reference) - 1):
+        if reference[i] != test[i]:
+            count += 1
+        i += 1
+    if count == 2:
+        return True
+    return False
 
 
 def find_metathesis(mydict):
+    '''mydict values are lists, we use index 0 as a reference and check the rest of the list (1 to end of list) against that reference word.'''
     answer = []
     for fp in mydict:
         reference = mydict[fp][0]
