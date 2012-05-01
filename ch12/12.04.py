@@ -23,79 +23,107 @@
 
 # Status: Complete
 
-file_of_words = open('words.txt', 'r')
-fingerprint_file = open('list_of_sorted_words.txt', 'r')
+words_file = open('words.txt', 'r')
 
-word_list = [word.rstrip('\n') for word in file_of_words]
-fingerprint_list = [word.rstrip('\n') for word in fingerprint_file]
+def clean(myfile):
+    '''Removes newlines from file read.'''
+    return [line.strip('\r\n') for line in myfile]
 
-# fp = fingerprint
+words_list = clean(words_file)
 
-fp_to_anagram = dict()
-
-for fp in fingerprint_list:
-    fp_to_anagram[fp] = []
-
-def match_sorted_word_to_anagram():
-    '''Checks if a sorted word from the word_list is already in the dictionary
-    if so, append the unsorted word to the list (value) for the key (sorted
-    word). Returns only words which have at least 1 anagram (>= 2 words in 
-    a list)'''
-    for word in word_list:
-        temp_word = ''.join(sorted(word))
-        if temp_word in fp_to_anagram:
-            fp_to_anagram[temp_word].append(word)
-    final_dict = {}
-    for key in fp_to_anagram:
-        if len(fp_to_anagram[key]) > 1:
-            final_dict[key] = fp_to_anagram[key]
-    return final_dict
+def make_anagram_dict(mylist):
+    fingerprints = dict()
+    for word in mylist:
+        fp = ''.join(sorted(word))
+        if fp not in fingerprints:
+            fingerprints[fp] = []
     
-final_dict = match_sorted_word_to_anagram()
-
-def make_sorted_list_of_anagrams():
-    '''Make a list of lists of anagrams sorted by length in reverse order'''
-    sorted_by_length_list = []
-    for key in final_dict:
-        sorted_by_length_list.append(final_dict[key])
-    sorted_by_length_list.sort(key=len, reverse=True)
-    return sorted_by_length_list
+    for word in mylist:
+        fp = ''.join(sorted(word))
+        if fp in fingerprints:
+            fingerprints[fp].append(word)
     
-def find_bingos():
-    ''' Find and return the longest list of anagrams whose word length=8'''
-    bingos = []
-    for key in final_dict:
-        if len(key) == 8:
-            bingos.append(final_dict[key])
-    bingos.sort(key=len, reverse=True)
-    return bingos[0]
-    
-#print find_bingos()
+    return_dict = dict()
+    for fp in fingerprints:
+        if len(fingerprints[fp]) <= 1:
+            pass
+        else:
+            return_dict[fp] = fingerprints[fp]
 
-sorted_list_of_anagrams = make_sorted_list_of_anagrams()
+    return return_dict
 
-def is_metathesis(reference_word, test_word):
-    '''Steps though reference_word and test_word and counts how often the 
-    two words differ. Metathesis pairs will mismatch exactly twice'''
-    mismatch_count = 0
+words_dict = make_anagram_dict(words_list)
+
+def print_anagrams(mydict):
+    fp = (fp for fp in mydict)
+
+    print "Sample from anagram dict:"
     i = 0
-    while i <= len(reference_word) - 1:
-        if reference_word[i] != test_word[i]:
-            mismatch_count += 1
+    while i < 5:
+        next = fp.next()
+        print "%s) %s:" % ((i + 1), next), mydict[next]
         i += 1
-    return mismatch_count == 2
 
-def find_metathesis_pairs():
-    '''For each list of anagrams produced by make_sorted_list_of_anagrams, 
-    use the first element as a reference word and check the rest of the 
-    list against that reference word using is_metathesis. Print pairs of 
-    words found to be metathesis pairs'''
-    for test_list in sorted_list_of_anagrams:
-        reference_word = test_list[0]
-        i = 1
-        while i <= len(test_list) - 1:
-            if is_metathesis(reference_word, test_list[i]):
-                print reference_word, test_list[i]
+    print "..."
+    print "\n"
+
+
+print_anagrams(words_dict)
+
+def sort_anagrams(mydict):
+    anagrams_lists = []
+    for fp in mydict:
+        anagrams_lists.append(mydict[fp])
+    anagrams_lists.sort(key=len, reverse=True)
+
+    print "Most anagrams:"
+    for i in range(0, 5):
+        print "%s) " % (i + 1), anagrams_lists[i]
+    print "..."
+    print "\n"
+
+
+sort_anagrams(words_dict)
+
+def find_bingos(mydict):
+    candidates = [mydict[key] for key in mydict if len(key) == 8]
+    candidates.sort(key=len, reverse=True)
+
+    print "Top Bingos:"
+    for i in range(0, 5):
+        print "%s) " % (i + 1), candidates[i]
+
+    print "..."
+    print "\n"
+
+find_bingos(words_dict)
+
+def is_metathesis(reference, test):
+        if len(reference) != len(test):
+            return False
+        i = 0
+        count = 0
+        while i < (len(reference) - 1):
+            if reference[i] != test[i]:
+                count += 1
             i += 1
+        if count == 2:
+            return True
+        return False
 
-find_metathesis_pairs()
+
+def find_metathesis(mydict):
+    answer = []
+    for fp in mydict:
+        reference = mydict[fp][0]
+        for i in range(1, (len(mydict[fp]) - 1)):
+            test = mydict[fp][i]
+            if is_metathesis(reference, test):
+                answer.append([reference, test])
+    
+    print "Sample of metathesis pairs:"
+    for i in range(0, 5):
+        print "%s) " % (i + 1), answer[i]
+    print "..."
+
+find_metathesis(words_dict)
