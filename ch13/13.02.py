@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #Go to Project Gutenberg (gutenberg.org) and download your favorite 
 #out-of-copyright book in plain text format.
 #
@@ -19,14 +20,13 @@ import string
 punctuations = [mark for mark in string.punctuation]
 whitespaces = [char for char in string.whitespace]
 
-origin = open('origin.txt', 'r')
-huck = open('huck.txt', 'r')
-frank = open('frank.txt', 'r')
-great = open('great.txt', 'r')
-meta = open('meta.txt', 'r')
-sherlock = open('sherlock.txt', 'r')
-tale = open('tale.txt', 'r')
-
+origin = 'origin.txt'
+huck = 'huck.txt'
+frank = 'frank.txt'
+great = 'great.txt'
+meta = 'meta.txt'
+sherlock = 'sherlock.txt'
+tale = 'tale.txt'
 
 def words(book):
     list_ = []
@@ -61,9 +61,11 @@ books = [origin, huck, frank, great, meta, sherlock, tale]
 
 def stats():
     for book in books:
+        book = open(book, 'r')
         print "Stats for %s:" % book.name
         data = [clean(word) for word in words(book)]
+        book.close()
         print "  Total: %s" % len(data)
         print "  Unique: %s" % len(histogram(data))
-        
+                
 stats()
