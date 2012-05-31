@@ -56,11 +56,9 @@ def print_anagrams(mydict):
     fp = (fp for fp in mydict)
 
     print "Sample from anagram dict:"
-    i = 0
-    while i < 5:
+    for i in range(1, 6):
         fp_next = fp.next()
-        print "%s) %s:" % ((i + 1), fp_next), mydict[fp_next]
-        i += 1
+        print "%s) %s:" % (i, fp_next), mydict[fp_next]
 
     print "..."
     print "\n"

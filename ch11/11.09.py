@@ -12,6 +12,7 @@ def make_dict():
     dict_ = {}
     for word in word_file:
         dict_[word.strip('\r\n')] = None
+    word_file.close()
     return dict_
     
 word_dict = make_dict()

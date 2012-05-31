@@ -14,7 +14,8 @@
 # the 'r,' instead, you're left with the word, 'wack,' which is a real word, 
 # it's just not a homophone of the other two words. But there is, however, at 
 # least one word that Dan and we know of, which will yield two homophones if 
-# you remove either of the first two letters to make two, new four-letter words. # The question is, what's the word?
+# you remove either of the first two letters to make two, new four-letter words.
+ # The question is, what's the word?
 # You can use the dictionary from Exercise 11.1 to check whether a string is in
 # the word list.
 # To check whether two words are homophones, you can use the CMU Pronouncing 
