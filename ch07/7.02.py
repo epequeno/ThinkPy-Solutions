@@ -14,6 +14,6 @@ def square_root(n):
        y = (x + n / x) / 2
        x = y
        i += 1
-   print x
+   return x
 
-square_root(n)
+print square_root(n)
