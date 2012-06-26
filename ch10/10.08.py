@@ -14,22 +14,26 @@
 # it's not.
 # Or you could read the documentation of the bisect module and use that!
 
-# Current Status: Incomplete
+# Current Status: Complete
 
-import bisect
+word_list = [word.strip('\r\n') for word in open('words.txt')]
 
-def make_list():
-   words = open('words.txt')
-   for line in words:
-       line = line.strip()
-       wordList = []
-       wordList = wordList.append(line) 
-       print wordList
+def bisect(myWord, myList):
+    original = myList
+    while True:
+        middle = len(myList) / 2
+        if myWord > myList[middle]:
+            myList = myList[middle:]
+        elif myWord < myList[middle]:
+            myList = myList[:middle]
+        elif myWord == myList[middle]:
+            return original.index(myWord)
+        
+        if len(myList) == 1:
+            if myWord != myList[:]:
+                return None
+            else:
+                return original.index(myWord)
+        
 
-make_list()
-
-
-def is_in_list(make_list):
-   print make_list()
-
-#is_in_list(make_list())
+print bisect("steven", word_list)
