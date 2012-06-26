@@ -23,10 +23,10 @@ Created on Sun Aug  7 19:24:25 2011
 # ord(A, Z) = 65, 90
 # ord(a, z) = 97, 122
 
-def normalize(x, lower, upper):
-    while x > upper:
+def normalize(x, low, high):
+    while x > high:
         x -= 26
-    while x < lower:
+    while x < low:
         x += 26
     return x
 

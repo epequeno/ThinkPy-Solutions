@@ -2,20 +2,11 @@
 # other (see rotate_word in Exercise 8.12).
 # Write a program that reads a wordlist and finds all the rotate pairs.
 
-# Current Status: Incomplete
+# Current Status: Complete
 
 import rotate
 
-word_file = open("words.txt")
-
-def make_dict():
-    dict_ = {}
-    for word in word_file:
-        dict_[word.strip('\r\n')] = None
-    word_file.close()
-    return dict_
-    
-word_dict = make_dict()
+word_dict = {word.strip('\r\n') : None for word in open('words.txt')}
 
 def find_rot_pairs():
     final_list = []

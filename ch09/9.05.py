@@ -5,8 +5,7 @@
 
 # Current Status: Complete
 
-word_file = open('words.txt')
-word_list = [word.rstrip('\r\n') for word in word_file]
+word_list = [word.rstrip('\r\n') for word in open('words.txt')]
 
 def uses_all(word, string):
     count = 0
