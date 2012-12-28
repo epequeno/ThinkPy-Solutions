@@ -5,12 +5,14 @@
 
 import copy
 
+
 class Point(object):
     """Represents a point in 2d space"""
-    
+
+
 class Rectangle(object):
     """Represents a rectangle in 2d space"""
-    
+
 rectangle = Rectangle()
 
 bottom_left = Point()
@@ -27,6 +29,7 @@ rectangle.corner2 = top_right
 dx = 5.0
 dy = 12.0
 
+
 def move_rectangle(rectangle, dx, dy):
     """Moves a trangle to the values of dx and dy using deepcopy to create
     a new rectangle object and not modify the original rectangle."""
@@ -37,7 +40,8 @@ def move_rectangle(rectangle, dx, dy):
     new_rectangle.corner2.x = new_rectangle.corner2.x + dx
     new_rectangle.corner1.y = new_rectangle.corner1.y + dy
     new_rectangle.corner2.y = new_rectangle.corner2.y + dy
-    print ("New: (%g,%g)" % (new_rectangle.corner1.x, new_rectangle.corner1.y)),
-    print ("(%g,%g)" % (new_rectangle.corner2.x, new_rectangle.corner2.y))
-    
+    print ("New: (%g,%g)" % (new_rectangle.corner1.x,
+           new_rectangle.corner1.y)),
+    ("(%g,%g)" % (new_rectangle.corner2.x, new_rectangle.corner2.y))
+
 move_rectangle(rectangle, dx, dy)

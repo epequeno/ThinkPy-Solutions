@@ -1,11 +1,12 @@
 # Write a function named uses_all that takes a word and a string of required
 # letters, and that returns True if the word uses all the required letters
-# at least once. How many words are there that use all the vowels aeiou? How 
+# at least once. How many words are there that use all the vowels aeiou? How
 # about aeiouy?
 
 # Current Status: Complete
 
 word_list = [word.rstrip('\r\n') for word in open('words.txt')]
+
 
 def uses_all(word, string):
     count = 0
@@ -16,7 +17,8 @@ def uses_all(word, string):
         return True
     else:
         return False
-        
+
+
 def find_uses_all_vowels(list):
     count = 0
     string = 'aeiouy'
@@ -24,7 +26,7 @@ def find_uses_all_vowels(list):
         if uses_all(word, string):
             count += 1
     return count
-    
+
 print find_uses_all_vowels(word_list)
 
 # There are 598 words that use the 5 normal vowels and only 42 that use those

@@ -5,7 +5,7 @@ Created on Mon Aug  1 19:49:05 2011
 @author: steven
 """
 
-# The built-in function eval takes a string and evaluates it using the 
+# The built-in function eval takes a string and evaluates it using the
 # Python interpreter.
 # For example:
 # >>> eval('1 + 2 * 3')
@@ -23,6 +23,7 @@ Created on Mon Aug  1 19:49:05 2011
 
 # Current Status: Complete
 
+
 def eval_loop():
     while True:
         n = raw_input('Input?\n:: ')
@@ -32,5 +33,5 @@ def eval_loop():
             result = eval(n)
             print result
     print result
-        
+
 eval_loop()

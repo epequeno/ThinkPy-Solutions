@@ -5,8 +5,9 @@
 # Current Status: Complete
 
 # I really couldn't figure this one out for the life of me so this solution
-# is stolen directly from 
+# is stolen directly from
 # http://stackoverflow.com/questions/4429462/python-recursion-exercise
+
 
 def is_power(a,b):
     if(a%b != 0):

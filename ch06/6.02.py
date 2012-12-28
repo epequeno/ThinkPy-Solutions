@@ -7,9 +7,10 @@
 
 import math
 
+
 def hypotenuse(x, y):
-    return math.sqrt(x**2 + y**2)
-    
+    return math.sqrt(x ** 2 + y ** 2)
+
 print hypotenuse(3, 4)
 
 """pretty much just wrote this out with one try (coming back to this problem

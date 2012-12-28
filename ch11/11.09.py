@@ -1,4 +1,4 @@
-# Two words are "rotate pairs" if you can rotate one of them and get the 
+# Two words are "rotate pairs" if you can rotate one of them and get the
 # other (see rotate_word in Exercise 8.12).
 # Write a program that reads a wordlist and finds all the rotate pairs.
 
@@ -6,7 +6,8 @@
 
 import rotate
 
-word_dict = {word.strip('\r\n') : None for word in open('words.txt')}
+word_dict = {word.strip('\r\n'): None for word in open('words.txt', 'r')}
+
 
 def find_rot_pairs():
     final_list = []

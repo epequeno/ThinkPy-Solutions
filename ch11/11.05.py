@@ -1,13 +1,15 @@
-# Read the documentation of the dictionary method setdefault and use it 
+# Read the documentation of the dictionary method setdefault and use it
 # to write a more concise version of invert_dict.
 
 # Current Status: Complete
+
 
 def histogram(word):
     dictionary = dict()
     for letter in word:
         dictionary[letter] = 1 + dictionary.get(letter, 0)
     return dictionary
+
 
 def invert_dict(d):
     inv = dict()

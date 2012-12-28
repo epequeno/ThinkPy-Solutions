@@ -6,20 +6,23 @@
 
 word_file = open('words.txt')
 
+
 def make_list():
     word_list = []
     for word in word_file:
         word_list.append(word.rstrip('\r\n'))
     return word_list
-    
+
 word_list = make_list()
+
 
 def uses_only(word, string):
     for letter in word:
         if letter not in string:
             return False
     return True
-    
+
+
 def make_sentence(x):
     count = 0
     for word in word_list:
@@ -31,4 +34,4 @@ def make_sentence(x):
 print make_sentence(word_list)
 
 # There are 188 words in the list that use only the letters found in 'acefhlo'
-# so it's very likely to make a sentence with those words. 
+# so it's very likely to make a sentence with those words.

@@ -3,7 +3,8 @@
 
 # Current Status: Complete
 
-word_dict = {word.strip('\r\n') : None for word in open('words.txt')}
+word_dict = {word.strip('\r\n'): None for word in open('words.txt')}
+
 
 def find_rev_pairs():
     for word in word_dict:

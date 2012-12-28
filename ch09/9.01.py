@@ -1,9 +1,10 @@
-# Write a program that reads words.txt and prints only the words with 
+# Write a program that reads words.txt and prints only the words with
 # more than 20 characters (not counting whitespace).
 
 # Current Status: Complete
 
 wordList = open('words.txt')
+
 
 def words(word):
     wordCount = 0
@@ -13,7 +14,7 @@ def words(word):
             print word.rstrip('\r\n')
             wordCount += 1
         lineCount += 1
-    percent  = (float(wordCount) / float(lineCount)) * 100.0
-    print "%0.3f" % percent + "%"
+    percent = (float(wordCount) / float(lineCount)) * 100.0
+    print "%0.3f%%" % percent
 
 words(wordList)

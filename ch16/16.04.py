@@ -5,19 +5,21 @@
 
 import copy
 
+
 class Time(object):
     """ represents the time of day.
     attributes: hour, minute, second"""
-    
+
 time = Time()
 time.hour = 11
 time.minute = 59
 time.second = 30
 
+
 def increment(time, seconds):
-    print ("Original time was: %.2d:%.2d:%.2d" 
+    print ("Original time was: %.2d:%.2d:%.2d"
           % (time.hour, time.minute, time.second))
-    
+
     new_time = copy.deepcopy(time)
     new_time.second += seconds
     if new_time.second > 59:
@@ -30,9 +32,9 @@ def increment(time, seconds):
         new_time.minute = remainder
     if new_time.hour > 12:
         new_time.hour -= 12
-        
+
     print "Plus %g seconds" % (seconds)
-    print ("New time is: %.2d:%.2d:%.2d" 
+    print ("New time is: %.2d:%.2d:%.2d"
           % (new_time.hour, new_time.minute, new_time.second))
     print "memory id of object 'time': ", id(time)
     print "memory id of object 'new_time': ", id(new_time)

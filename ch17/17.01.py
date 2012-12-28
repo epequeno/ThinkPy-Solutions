@@ -4,12 +4,13 @@
 
 # Current Status: Complete
 
+
 class Time(object):
     def time_to_int(self):
         minutes = time.hour * 60 + time.minute
         seconds = minutes * 60 + time.second
         return seconds
-        
+
 time = Time()
 time.hour = 11
 time.minute = 59

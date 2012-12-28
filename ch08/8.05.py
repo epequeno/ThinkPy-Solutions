@@ -10,14 +10,15 @@ Created on Sun Aug  7 18:04:28 2011
 
 # Current Status: Complete
 
-word = 'banana'
-target = 'a'
+myword = 'banana'
+mytarget = 'a'
+
 
 def count(word, target):
-    count = 0
+    i = 0
     for letter in word:
         if letter == target:
-            count += 1
-    return count
+            i += 1
+    return i
 
-print count(word, target)
+print count(myword, mytarget)

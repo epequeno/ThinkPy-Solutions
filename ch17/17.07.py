@@ -1,7 +1,7 @@
-# Visual is a Python module that provides 3-D graphics. It is not always 
+# Visual is a Python module that provides 3-D graphics. It is not always
 # included in a Python installation, so you might have to install it from your
 # software repository or, if it’s not there, from vpython.org.
-# The following example creates a 3-D space that is 256 units wide, long and 
+# The following example creates a 3-D space that is 256 units wide, long and
 # high, and sets the “center” to be the point (128, 128, 128). Then it draws
 # a blue sphere.
 #
@@ -11,7 +11,7 @@
 # color = (0.1, 0.1, 0.9)  # mostly blue
 # sphere(pos=scene.center, radius=128, color=color)
 #
-# color is an RGB tuple; that is, the elements are Red-Green-Blue levels 
+# color is an RGB tuple; that is, the elements are Red-Green-Blue levels
 # between 0.0 and 1.0 (see wikipedia.org/wiki/RGB_color_model).
 # If you run this code, you should see a window with a black background and a
 # blue sphere. If you drag the middle button up and down, you can zoom in and
@@ -32,8 +32,8 @@
 # in the range 0–255, but the RGB tuples are in the range 0.0–1.0.
 # 3. Download thinkpython.com/code/color_list.py and use the function
 # read_colors to generate a list of the available colors on your system,
-# their names and RGB values. For each named color draw a sphere in the 
-# position that corresponds to its RGB values. You can see my solution at 
+# their names and RGB values. For each named color draw a sphere in the
+# position that corresponds to its RGB values. You can see my solution at
 # thinkpython.com/code/color_space.py.
 
 # Current Status: Incomplete
