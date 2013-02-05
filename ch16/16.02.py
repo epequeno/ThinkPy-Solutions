@@ -2,7 +2,7 @@
 # t1 and t2, and returns True if t1 follows t2 chronologically and False
 # otherwise. Challenge: don't use an if statement.
 
-# Current Satus: Complete
+# Current Satus: Incomplete
 
 
 class Time(object):
