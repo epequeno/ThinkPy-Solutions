@@ -4,6 +4,7 @@
 
 # Current Satus: Complete
 
+import time
 import datetime
 
 class Time(object):
@@ -11,17 +12,14 @@ class Time(object):
     def __init__(self, year=2000, month=1, day=1, hour=12, minute=0, sec=0):
         self.date = datetime.datetime(year, month, day, hour, minute, sec)
         
-    def time_to_int(self):
-        return int(self.date.strftime("%s"))
-
-# 1 AM on Jan 1, 2001        
-t1 = Time(2001, 1, 1, 1)
-
-# 12 AM on Jan 1, 2001
-t2 = Time(2001, 1, 1, 0)
-
+    def mktime(self):
+        return time.mktime(self.date.timetuple())
+        
+        
+t1 = Time(2013, 1, 3, 15)
+t2 = Time(2013, 1, 3, 1)
 
 def is_after(time1, time2):
-    return time1.time_to_int() > time2.time_to_int()
+    return time1.mktime() > time2.mktime()
     
-print is_after(t2, t1)
+print is_after(t1, t2)
