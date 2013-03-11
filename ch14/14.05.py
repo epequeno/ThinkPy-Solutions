@@ -62,19 +62,19 @@ def is_all_num(user_input):
             return flag
     return flag
 
-def is_query_valid(data):
-    return "<title>" in data_list[1]
+#def is_query_valid(data):
+#    return "<title>" in data_list[1]
 
 def main():
     if not is_len_valid(user_input):
         print "The input must have 5 digits"
     elif not is_all_num(user_input):
         print "Zip Codes don't have letters!"
-    elif not is_query_valid(data):
-        print "Information for %s not found." % user_input
+    # elif not is_query_valid(data):
+    #     print "Information for %s not found." % user_input
     else:
-        city = re.findall(r'\<title\>Zip\ code\ for\ (.*?)\ -\ ', data)
-        population = re.findall(r'Population:\<\/b\>\<\/td\>\<td\>(.*?)\ \<span', data)
+        city = re.findall(r'\<h2\>\<strong\>(.*?),\ ', data)
+        population = re.findall(r'Total\ population\</dt\>\<dd\>(.*?)\<', data)
         print "%s (%s) has a population of %s" % (city[0], user_input, population[0])
 
 data = requests.get("http://www.uszip.com/zip/" + user_input).content
