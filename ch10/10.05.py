@@ -12,83 +12,37 @@
 # thinkpython.com/code/birthday.py.
 
 # Current Status: Complete
+# Notes: View version history
 
 import random
 
-# listOne = [1, 2, 3, 4, 5]
-# listOne = [1, 2, 2, 3, 4]
+NUMBER_OF_STUDENTS = 23
+TRIALS = 1000
 
-
-def has_duplicates(listOne):
+def has_duplicates(my_list):
     i = 0
-    while i < len(listOne):
-        if listOne.count(listOne[i]) > 1:
+    while i < len(my_list):
+        if my_list.count(my_list[i]) > 1:
             return True
             break
-        elif i == (len(listOne) - 1):
+        elif i == (len(my_list) - 1):
             return False
             break
         i += 1
 
-# has_duplicates(listOne)
-# Got rid of the second test on the elif statement. The first if statment will
-# check every index from 0 to (len(listOne) - 1) and check if that index has
-# a count greater than 1. If the loop has gotten to the last or even second
-# to last index and not found a duplicate you can be safe in assuming that
-# there are no duplicated items in the list. When the counter is up to the 2nd
-# to last item in the list (which as far as the index notation goes is the
-# last item) it means that all items in the list have been checked and that
-# there were no matches, the false condition.
+def generate_random_birthdays():
+    return [random.randint(1, 365) for student in range(NUMBER_OF_STUDENTS)]
 
 
-def paradox():
-    birthDay = []
+
+def stats(TRIALS):
     i = 0
-    while i <= 23:
-        birthDay.append(random.randint(1, 365))
-        i += 1
-    return birthDay
-
-# paradox()
-
-# we will run the list through has_duplicates(), for each list that returns
-# true, increment duplicate count. See what the probibility of getting a
-# duplicate is given 10,000 trial classes. This one took a while to run with
-# 1,000,000 classes.  With 100 trials the probility was kind of all over the
-# place and we would have had to do some other statistics on it to find the
-# average or mode, but if we change the sample size to 10,000, the probablity
-# returns ~50% on most runs.
+    duplicate_count = 0
+    for i in range(TRIALS):
+        if has_duplicates(generate_random_birthdays()):
+            duplicate_count += 1
+    print "In %d classrooms with %d students, %.1f%% had students\
+ with duplicate birthdays." % (TRIALS, NUMBER_OF_STUDENTS, (float(duplicate_count) / TRIALS) * 100)
 
 
-def stats(paradox):
-    i = 0
-    dupCount = 0
-    while i < 10000:
-        if has_duplicates(paradox()):
-            dupCount += 1
-        i += 1
-    print (float(dupCount) / i) * 100.0, '%'
-
-
-stats(paradox)
-
-# His solution is better since it takes the class size and number of trials
-# as variables. Parts of his solution and mine are almost identical but the
-# way we approached the has_duplicates problem are pretty different.
-#
-# When run with 10,000 trials stats() runs:
-# real	0m0.541s
-# user	0m0.540s
-# sys	0m0.000s
-#
-# When run with 100,000 trials:
-# real	0m5.223s
-# user	0m5.204s
-# sys	0m0.000s
-#
-# With 1,000,000 trials:
-# real	0m52.642s
-# user	0m52.451s
-# sys	0m0.020s
-#
-# Setting these as benchmarks for attempts at optimization later.
+stats(TRIALS)
