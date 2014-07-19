@@ -31,7 +31,7 @@ def is_pal_num():
 is_pal_num()
 
 # My solution is much different from the authors solution. For exercize
-# 9.7 I couldn't get a solution and look at the authors and ended up with
+# 9.7 I couldn't solve it and had to look at the authors and ended up with
 # a solution that was almost identical. In this case I solved it independently
 # and got something totally different.  I kind of like mine a little better
 # since it's easier to follow the logic assuming the index notation doesn't
