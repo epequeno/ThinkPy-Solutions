@@ -39,14 +39,14 @@ def make_anagram_dict(word_list):
 
 anagrams = make_anagram_dict(words)
 
-def print_anagrams(mydict):
+def print_anagrams(anagrams):
     '''Uses a generator to call and print 5 items from mydict'''
-    fp = (fp for fp in mydict)
+    fp = (fp for fp in anagrams)
 
     print "Sample from anagram dict:"
     for i in range(1, 6):
         fp_next = fp.next()
-        print "%s) %s:" % (i, fp_next), mydict[fp_next]
+        print "%s) %s:" % (i, fp_next), anagrams[fp_next]
 
     print "..."
     print "\n"
@@ -55,12 +55,12 @@ def print_anagrams(mydict):
 print_anagrams(anagrams)
 
 
-def sort_anagrams(mydict):
+def sort_anagrams(anagrams):
     '''Returns a list of lists containing all anagram matches. The longest list
      (most anagrams) is at the top'''
     anagrams_lists = []
-    for fp in mydict:
-        anagrams_lists.append(mydict[fp])
+    for fp in anagrams:
+        anagrams_lists.append(anagrams[fp])
     anagrams_lists.sort(key=len, reverse=True)
 
     print "Most anagrams:"
@@ -73,10 +73,10 @@ def sort_anagrams(mydict):
 sort_anagrams(anagrams)
 
 
-def find_bingos(mydict):
+def find_bingos(anagrams):
     '''Filters mydict for keys of length 8. Sorts a list of the values
      (lists) and sorts by length in reverse order'''
-    candidates = [mydict[key] for key in mydict if len(key) == 8]
+    candidates = [anagrams[key] for key in anagrams if len(key) == 8]
     candidates.sort(key=len, reverse=True)
 
     print "Top Bingos:"
@@ -104,14 +104,14 @@ def is_metathesis(reference, test):
     return False
 
 
-def find_metathesis(mydict):
+def find_metathesis(anagrams):
     '''mydict values are lists, we use index 0 as a reference and check the
      rest of the list (1 to end of list) against that reference word.'''
     answer = []
-    for fp in mydict:
-        reference = mydict[fp][0]
-        for i in range(1, (len(mydict[fp]) - 1)):
-            test = mydict[fp][i]
+    for fp in anagrams:
+        reference = anagrams[fp][0]
+        for i in range(1, (len(anagrams[fp]) - 1)):
+            test = anagrams[fp][i]
             if is_metathesis(reference, test):
                 answer.append([reference, test])
 
