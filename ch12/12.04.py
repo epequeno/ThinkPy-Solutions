@@ -23,35 +23,21 @@
 
 # Status: Complete
 
-words_list = [line.strip('\r\n') for line in open('words.txt', 'r')]
+words = [line.strip('\r\n') for line in open('words.txt', 'r')]
 
-
-def make_anagram_dict(mylist):
-    '''Main grunt work. Returns dict which maps fingerprints to anagrams based
-    on that fingerprint. Iterates through the list of words once to create a
-    dict with the fingerprints. Iterates again to append matches to the
-    fingerprints dict. Finally, iterating through the dict to filter out
-    fingerprints that produced a list of length 1'''
-    fingerprints = dict()
-    for word in mylist:
+def make_anagram_dict(word_list):
+    '''Take a list of words, return a dict with a fingerprint as the key
+    and the anagrams made from that fingerprint as the value.'''
+    anagrams = dict()
+    for word in word_list:
         fp = ''.join(sorted(word))
-        if fp not in fingerprints:
-            fingerprints[fp] = []
+        anagrams[fp] = anagrams.get(fp, [])
+        anagrams[fp].append(word)
 
-        if fp in fingerprints:
-            fingerprints[fp].append(word)
+    anagrams = {fp: anagrams[fp] for fp in anagrams if len(anagrams[fp]) > 1}
+    return anagrams
 
-    filtered_dict = dict()
-    for fp in fingerprints:
-        if len(fingerprints[fp]) <= 1:
-            pass
-        else:
-            filtered_dict[fp] = fingerprints[fp]
-
-    return filtered_dict
-
-words_dict = make_anagram_dict(words_list)
-
+anagrams = make_anagram_dict(words)
 
 def print_anagrams(mydict):
     '''Uses a generator to call and print 5 items from mydict'''
@@ -66,7 +52,7 @@ def print_anagrams(mydict):
     print "\n"
 
 
-print_anagrams(words_dict)
+print_anagrams(anagrams)
 
 
 def sort_anagrams(mydict):
@@ -79,12 +65,12 @@ def sort_anagrams(mydict):
 
     print "Most anagrams:"
     for i in range(0, 5):
-        print "%s)" % (i + 1), anagrams_lists[i]
+        print "%s) %d" % ((i + 1), len(anagrams_lists[i])), anagrams_lists[i]
     print "..."
     print "\n"
 
 
-sort_anagrams(words_dict)
+sort_anagrams(anagrams)
 
 
 def find_bingos(mydict):
@@ -96,12 +82,12 @@ def find_bingos(mydict):
     print "Top Bingos:"
     for i in range(0, 5):
         fp = ''.join(sorted(candidates[i][0]))
-        print "%s) %s:" % ((i + 1), fp), candidates[i]
+        print "%s) %d: %s" % ((i + 1), len(candidates[i]), fp), candidates[i]
 
     print "..."
     print "\n"
 
-find_bingos(words_dict)
+find_bingos(anagrams)
 
 
 def is_metathesis(reference, test):
@@ -134,4 +120,4 @@ def find_metathesis(mydict):
         print "%s)" % (i + 1), answer[i]
     print "..."
 
-find_metathesis(words_dict)
+find_metathesis(anagrams)

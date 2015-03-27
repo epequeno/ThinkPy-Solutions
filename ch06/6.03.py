@@ -7,7 +7,6 @@ x = int(raw_input('x?\n'))
 y = int(raw_input('y?\n'))
 z = int(raw_input('z?\n'))
 
-
 def is_between(x, y, z):
     return x <= y and y <= z
 

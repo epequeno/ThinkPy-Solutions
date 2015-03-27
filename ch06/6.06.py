@@ -16,7 +16,7 @@ def last(word):
 def middle(word):
     return word[1:-1]
 
-# We'all see how they work in Chapter 8.
+# We'll see how they work in Chapter 8.
 # 1. Type these functions into a file named palindrome.py and test them out.
 # What happens if you call middle with a string with two letters? One letter?
 # What about the empty string, which is written '' and contains no letters?
