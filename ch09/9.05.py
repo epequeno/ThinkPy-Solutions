@@ -5,7 +5,8 @@
 
 # Current Status: Complete
 
-word_list = [word.rstrip('\r\n') for word in open('words.txt')]
+with open('words.txt', 'r') as fd:
+    word_list = fd.read().split()
 
 
 def uses_all(word, string):
@@ -15,8 +16,7 @@ def uses_all(word, string):
             count += 1
     if count == len(string):
         return True
-    else:
-        return False
+    return False
 
 
 def find_uses_all_vowels(list):

@@ -11,7 +11,8 @@
 
 # Current Status: Complete
 
-wordList = open('words.txt')
+with open('words.txt', 'r') as fd:
+    word_list = fd.read().split()
 
 
 def is_trip_pair(wordList):
@@ -28,7 +29,7 @@ def is_trip_pair(wordList):
                 pairCount = 0
                 i += 1
 
-is_trip_pair(wordList)
+is_trip_pair(word_list)
 
 # This is essentially the solution that the author of Think Python provided
 # I just modified it a bit and got rid of the last 'return False' statement

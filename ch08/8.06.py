@@ -10,12 +10,14 @@ Created on Sun Aug  7 18:08:41 2011
 
 # Current Status: Complete
 
+
 def find(word, letter, index):
     while index < len(word):
         if word[index] == letter:
             return index
-        index = index + 1
+        index += 1
     return -1
+
 
 def count(word, letter):
     count = 0

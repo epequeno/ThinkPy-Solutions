@@ -14,7 +14,8 @@ Created on Sun Aug  7 18:31:20 2011
 word = "banana"
 letter = "a"
 
+
 def count(word, letter):
-    return word.count("a")
+    return word.count(letter)
     
 print count(word, letter)

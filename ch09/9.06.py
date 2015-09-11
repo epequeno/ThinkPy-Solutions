@@ -4,7 +4,8 @@
 
 # Current Status: Complete
 
-word_list = [word.rstrip('\r\n') for word in open('words.txt', 'r')]
+with open('words.txt', 'r') as fd:
+    word_list = fd.read().split()
 
 
 def is_abecedarian(word):

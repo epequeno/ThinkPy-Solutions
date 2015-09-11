@@ -9,7 +9,7 @@ def compare(x, y):
         return 1
     elif x == y:
         return 0
-    else:
-        return -1
+    return -1
 
 print compare(2, 2)
+

@@ -3,19 +3,7 @@
 
 # Current Status: Complete
 
-wordList = open('words.txt')
+with open('words.txt', 'r') as fd:
+    wordList = fd.read().split()
 
-
-def words(word):
-    wordCount = 0
-    lineCount = 0
-    for word in wordList:
-        word = word.rstrip('\r\n')
-        if len(word) > 20:
-            print word
-            wordCount += 1
-        lineCount += 1
-    percent = (float(wordCount) / float(lineCount)) * 100.0
-    print "%0.4f%%" % percent
-
-words(wordList)
+print [word for word in wordList if len(word) > 20]

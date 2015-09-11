@@ -23,12 +23,14 @@ Created on Sun Aug  7 19:24:25 2011
 # ord(A, Z) = 65, 90
 # ord(a, z) = 97, 122
 
+
 def normalize(x, low, high):
     while x > high:
         x -= 26
     while x < low:
         x += 26
     return x
+
 
 def rotate_word(word, amount):
     new_word = ''

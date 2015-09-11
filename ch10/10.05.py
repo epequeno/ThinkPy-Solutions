@@ -19,24 +19,23 @@ import random
 NUMBER_OF_STUDENTS = 23
 TRIALS = 1000
 
+
 def has_duplicates(my_list):
     i = 0
     while i < len(my_list):
         if my_list.count(my_list[i]) > 1:
             return True
-            break
         elif i == (len(my_list) - 1):
             return False
-            break
         i += 1
+
 
 def generate_random_birthdays():
     return [random.randint(1, 365) for student in range(NUMBER_OF_STUDENTS)]
 
 
-
 def stats(TRIALS):
-    i = 0
+
     duplicate_count = 0
     for i in range(TRIALS):
         if has_duplicates(generate_random_birthdays()):
