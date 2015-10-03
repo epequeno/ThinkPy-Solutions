@@ -30,7 +30,7 @@ def is_pal_num():
 
 is_pal_num()
 
-# My solution is much different from the authors solution. For exercize
+# My solution is much different from the authors solution. For exercise
 # 9.7 I couldn't solve it and had to look at the authors and ended up with
 # a solution that was almost identical. In this case I solved it independently
 # and got something totally different.  I kind of like mine a little better

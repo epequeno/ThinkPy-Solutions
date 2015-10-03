@@ -7,7 +7,7 @@
 # 2. Write a program that takes a birthday as input and prints the user's age
 # and the number of days, hours, minutes and seconds until their next birthday.
 
-# Current Status: incomplete
+# Current Status: Complete
 
 import datetime
 
@@ -27,7 +27,7 @@ class Time(object):
         self.date = datetime.datetime(year, month, day, hour, minute, second)
 
 today = Time().now
-birthday = Time(1983, 3, 31).date
+birthday = Time(1953, 5, 24).date
 
 
 def day_of_week():

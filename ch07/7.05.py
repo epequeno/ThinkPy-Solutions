@@ -30,9 +30,9 @@ def estimate_pi():
         k += 1.0
         sigma += last_term
     result = ((2 * math.sqrt(2)) / 9801) * sigma
-    print 1 / result
+    return 1 / result
 
-estimate_pi()
+print estimate_pi()
 print math.pi
 
 # real    0m0.014s

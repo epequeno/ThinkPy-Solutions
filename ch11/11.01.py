@@ -8,7 +8,9 @@
 
 import uuid
 
-words = open('words.txt')
+with open('words.txt') as fd:
+    words = fd.read().splitlines()
+
 result = dict()
 
 
@@ -17,4 +19,4 @@ def dictionary():
         result[line] = uuid.uuid4()
     return result
 
-dictionary()
+print dictionary()

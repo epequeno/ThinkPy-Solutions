@@ -8,7 +8,8 @@
 
 import random
 
-words = open('words.txt')
+with open('words.txt') as fd:
+    words = fd.read().splitlines()
 
 
 def sort_by_length(words):

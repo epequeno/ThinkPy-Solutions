@@ -7,15 +7,13 @@
 # greatest common divisor.
 # If you need help, see en.wikipedia.org/wiki/Euclidean_algorithm.
 
-# Current Status: Incomplete
+# Current Status: Complete
 
 
 def gcd(a, b):
-    if a == 0:
-        return b
-    elif b == 0:
+    if b == 0:
         return a
-    else:
-        return gcd(b, a % b)
+    r = a % b
+    return gcd(b, r)
 
-print gcd(1989, 867)
+print gcd(436, 12)

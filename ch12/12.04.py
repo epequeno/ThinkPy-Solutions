@@ -23,7 +23,8 @@
 
 # Status: Complete
 
-words = [line.strip('\r\n') for line in open('words.txt', 'r')]
+with open('words.txt', 'r') as fd:
+    words = fd.read().splitlines()
 
 def make_anagram_dict(word_list):
     '''Take a list of words, return a dict with a fingerprint as the key
@@ -45,6 +46,7 @@ def print_anagrams(anagrams):
 
     print "Sample from anagram dict:"
     for i in range(1, 6):
+        # call once, print twice
         fp_next = fp.next()
         print "%s) %s:" % (i, fp_next), anagrams[fp_next]
 

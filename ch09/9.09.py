@@ -37,4 +37,4 @@ def main():
 
 candidates = main()
 
-print "You are now %s years old." % candidates[5]
+print "You are now {} years old.".format(candidates[5])

@@ -1,10 +1,7 @@
 #Exercise 3   Modify the program from the previous exercise to print the 20
 # most frequently-used words in the book.
 
-import string
-
-punctuations = [mark for mark in string.punctuation]
-whitespaces = [space for space in string.whitespace]
+from string import punctuation, whitespace
 
 origin = 'origin.txt'
 huck = 'huck.txt'
@@ -36,7 +33,7 @@ def words(book):
 def clean(word):
      result = ''
      for char in word:
-         if (char in whitespaces) or (char in punctuations):
+         if (char in whitespace) or (char in punctuation):
              pass
          else:
              result += char.lower()

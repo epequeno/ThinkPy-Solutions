@@ -6,7 +6,8 @@
 
 # Current Status: Complete
 
-words = open('words.txt')
+with open('words.txt') as fd:
+    words = fd.read().split()
 
 
 def method_one(words):

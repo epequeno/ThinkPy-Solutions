@@ -3,10 +3,7 @@
 # them are typos? How many of them are common words that should be in the word
 # list, and how many of them are really obscure?
 
-import string
-
-punctuations = [mark for mark in string.punctuation]
-whitespaces = [space for space in string.whitespace]
+from string import punctuation, whitespace
 
 origin = 'origin.txt' # Origin of Species, 1859
 huck = 'huck.txt' # Huck Finn, 1884
@@ -37,7 +34,7 @@ def words(book):
 def clean(word):
     result = ''
     for char in word:
-        if (char in whitespaces) or (char in punctuations):
+        if (char in whitespace) or (char in punctuation):
             pass
         elif not char.isalpha():
             pass

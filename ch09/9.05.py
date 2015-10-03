@@ -21,7 +21,7 @@ def uses_all(word, string):
 
 def find_uses_all_vowels(list):
     count = 0
-    string = 'aeiouy'
+    string = 'aeiou'
     for word in list:
         if uses_all(word, string):
             count += 1

@@ -27,21 +27,13 @@ def libmath(n):
     n = float(n)
     return math.sqrt(n)
 
-# this function has a mix of int, str and float so there is a bit of
-# conversion going on.
-
 
 def printout():
+    print '{:<12}\t{:<12}\t{}'.format('newtons', 'libmath', 'delta')
     for i in range(1, 10):
-        n = str(newtons(i))  # newtowns() gets int and returns float. change
-        # to str.
-        l = str(libmath(i))  # same here
-        ab = abs(newtons(i) - libmath(i))  # out as int in as float, no str
-        if (len(n) or len(l)) == 3:
-            print i, n, '         ', l, '          ', ab
-        elif len(n) == 12:
-            print i, n, '', l, ' ', ab
-        else:
-            print i, n, l, '', ab
+        n = newtons(i)
+        l = libmath(i)
+        ab = abs(n - l)
+        print '{:<12}\t{:<12}\t{}'.format(n, l, ab)
 
 printout()

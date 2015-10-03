@@ -3,12 +3,14 @@
 
 # Current Status: Complete
 
-word_dict = {word.strip('\r\n'): None for word in open('words.txt')}
+with open('words.txt') as fd:
+    word_list = fd.read().splitlines()
 
+word_dict = {word: None for word in word_list}
 
-def find_rev_pairs():
+def find_rev_pairs(word_dict):
     for word in word_dict:
         if word[::-1] in word_dict:
             print word, word[::-1]
 
-find_rev_pairs()
+find_rev_pairs(word_dict)

@@ -7,7 +7,10 @@
 
 # Current Status: Complete
 
-word_dict = {word.strip('\r\n'): None for word in open('words.txt', 'r')}
+with open('words.txt') as fd:
+    word_list = fd.read().splitlines()
+
+word_dict = {word: None for word in word_list}
 
 
 def split_word(word):

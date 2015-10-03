@@ -16,29 +16,21 @@
 # Also, you might consider using the string methods strip, replace and
 # translate.
 
-import string
+from string import punctuation, whitespace
 
-punctuations = [mark for mark in string.punctuation]
-whitespaces = [char for char in string.whitespace]
+book = 'origin.txt'
 
-#split into words
-def words():
-    data = open('origin.txt', 'r')
-    main = []
-    for line in data:
-        for item in line.split():
-            main.append(item)
-    return main
-    data.close()
+with open(book, 'r') as fd:
+    words = fd.read().split()
 
 #remove punctuation, whitespace, uppercase
 def clean(word):
     cleansed = ''
     for char in word:
-        if ((char in punctuations) or (char in whitespaces)):
+        if ((char in punctuation) or (char in whitespace)):
             pass
         else:
             cleansed += char.lower()
     return cleansed
         
-print "The book has %s 'words'" % len([clean(word) for word in words()])
+print "{} has {} 'words'".format(book, len([clean(word) for word in words]))

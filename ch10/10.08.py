@@ -16,7 +16,8 @@
 
 # Current Status: Complete
 
-word_list = [word.strip('\r\n') for word in open('words.txt')]
+with open('words.txt') as fd:
+    word_list = fd.read().splitlines()
 
 
 def bisect(myWord, myList):
@@ -37,4 +38,4 @@ def bisect(myWord, myList):
                 return original.index(myWord)
 
 
-print bisect("steven", word_list)
+print bisect("danger", word_list)

@@ -4,16 +4,10 @@
 
 # Current Status: Incomplete
 
-word_file = open('words.txt')
+target = 'acefhlo'
 
-
-def make_list():
-    word_list = []
-    for word in word_file:
-        word_list.append(word.rstrip('\r\n'))
-    return word_list
-
-word_list = make_list()
+with open('words.txt', 'r') as fd:
+    word_list = fd.read().splitlines()
 
 
 def uses_only(word, string):
@@ -23,15 +17,8 @@ def uses_only(word, string):
     return True
 
 
-def make_sentence(x):
-    count = 0
-    for word in word_list:
-        if uses_only(word, 'acefhlo'):
-            print word
-            count += 1
-    return count
-
-print make_sentence(word_list)
+words = [word for word in word_list if uses_only(word, target)]
+print "There are {} words that use only '{}', here's a sample: {}".format(len(words), target, words[:10])
 
 # There are 188 words in the list that use only the letters found in 'acefhlo'
 # so it's very likely to make a sentence with those words.

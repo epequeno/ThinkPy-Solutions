@@ -11,5 +11,6 @@ with open('words.txt', 'r') as fd:
 def is_abecedarian(word):
     return word == ''.join(sorted(word))
 
-print ("There are %s abecedarian words."
-       % len([word for word in word_list if is_abecedarian(word)]))
+words = [word for word in word_list if is_abecedarian(word)]
+
+print "There are {} abecedarian words.".format(len(words))

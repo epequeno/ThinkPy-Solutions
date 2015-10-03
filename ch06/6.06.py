@@ -26,7 +26,7 @@ def middle(word):
 
 # Current Status =  Complete
 
-word = str(raw_input('Want to see if it is a palindrome?\n'))
+word = raw_input('Want to see if it is a palindrome?\n')
 
 
 def is_palindrome(word):

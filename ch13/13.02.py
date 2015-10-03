@@ -15,10 +15,7 @@
 #books by different authors, written in different eras. Which author uses 
 #the most extensive vocabulary?
 
-import string
-
-punctuations = [mark for mark in string.punctuation]
-whitespaces = [char for char in string.whitespace]
+from string import punctuation, whitespace
 
 origin = 'origin.txt'
 huck = 'huck.txt'
@@ -45,7 +42,7 @@ def words(book):
 def clean(word):
     result = ''
     for letter in word:
-        if (letter in whitespaces) or (letter in punctuations):
+        if (letter in whitespace) or (letter in punctuation):
             pass
         else:
             result += letter.lower()
