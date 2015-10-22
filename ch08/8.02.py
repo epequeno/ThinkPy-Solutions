@@ -12,11 +12,13 @@ Created on Sun Aug  7 17:41:52 2011
 prefixes = 'JKLMNOPQ'
 suffix = 'ack'
 
-def ducks():
-    for i in prefixes:
-        if i == "O" or i == "Q":
-            print i + "u" + suffix
-        else:
-            print i + suffix
 
-ducks()
+def ducks():
+    for p in prefixes:
+        if p == "O" or p == "Q":
+            yield '{}uack'.format(i)
+        else:
+            yield '{}ack'.format(i)
+
+for i in list(ducks()):
+    print i
