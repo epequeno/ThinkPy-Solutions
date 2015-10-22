@@ -15,10 +15,10 @@ suffix = 'ack'
 
 def ducks():
     for p in prefixes:
-        if p == "O" or p == "Q":
-            yield '{}uack'.format(i)
+        if p in ['O', 'Q']:
+            yield '{}uack'.format(p)
         else:
-            yield '{}ack'.format(i)
+            yield '{}ack'.format(p)
 
 for i in list(ducks()):
     print i
