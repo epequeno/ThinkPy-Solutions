@@ -11,11 +11,11 @@ Created on Sun Aug  7 18:31:20 2011
 
 # Current Status: Complete
 
-word = "banana"
-letter = "a"
+w = "banana"
+l = "a"
 
 
 def count(word, letter):
     return word.count(letter)
     
-print count(word, letter)
+print count(w, l)
