@@ -2,7 +2,9 @@
 # cards in a Deck. sort uses the __cmp__ method we defined to determine sort
 # order.
 
-# Current Status: Incomplete
+# Current Status: Complete
+
+from random import shuffle
 
 class Card(object):
     """Represents a standard playing card."""
@@ -18,21 +20,50 @@ class Card(object):
     def __str__(self):
         return '%s of %s' % (Card.rank_names[self.rank],
                              Card.suit_names[self.suit])
+    
+    def __repr__(self):
+        return 'Card <{}, {}>'.format(self.rank_names[self.rank], self.suit_names[self.suit])
+    
+    # I'm using the following 'rich comparison' methods in place of __cmp__ 
+    # https://docs.python.org/2/reference/datamodel.html#object.__lt__
+    
+    def __lt__(self, other):
+        return self.rank < other.rank
+    
+    def __gt__(self, other):
+        return self.rank > other.rank
+    
+    def __eq__(self, other):
+        return self.rank == other.rank
+
+
 
 class Deck(object):
-  def __init__(self):
-        self.cards = []
-        for suit in range(4):
-            for rank in range(1, 14):
-                card = Card(suit, rank)
-                self.cards.append(card)
-  def __str__(self):
-        res = []
-        for card in self.cards:
-            res.append(str(card))
-        return '\n'.join(res)
+    def __init__(self):
+        self.cards = [Card(suit, rank) for suit in range(4) for rank in range(1, 14)]
+        
+    def __str__(self):
+        return '\n'.join([str(card) for card in self.cards])
+    
+    def __repr__(self):
+        return "Deck <{}>".format(self.cards)
+    
+    def __len__(self):
+        return len(self.cards)
+    
+    def shuffle(self):
+        shuffle(self.cards)
+        return "deck has been shuffled."
+    
+    def sort(self):
+        self.cards.sort()
+        return "deck has been sorted."
+    
 
 
 
 deck = Deck()
+deck.shuffle()
+deck
 deck.sort()
+print(deck)

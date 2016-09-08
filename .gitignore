@@ -2,3 +2,5 @@
 *.pyc
 .solutions
 venv2
+.ThinkPy-Solutions
+.ipynb_checkpoints
