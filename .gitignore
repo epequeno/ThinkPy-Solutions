@@ -1,3 +1,4 @@
 .idea
 *.pyc
 .solutions
+venv2
