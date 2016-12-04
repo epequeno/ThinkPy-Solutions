@@ -2,6 +2,10 @@
 # the Button, it should draw a circle on the canvas.
 
 # Current Status: Complete
+
+# note: solution written in python 3
+# author: bknox95
+
 from tkinter import *
 from tkinter import Canvas
 
