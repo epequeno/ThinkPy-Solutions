@@ -8,8 +8,9 @@
 # is stolen directly from
 # http://stackoverflow.com/questions/4429462/python-recursion-exercise
 
-
 def is_power(a,b):
+    if a == b:
+        return False
     if(a%b != 0):
         return False
     elif(a/b == 1):
