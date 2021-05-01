@@ -29,15 +29,23 @@
 # 2. Use the previous function to draw a similar grid with four rows and four
 # columns. You can see my solution at thinkpython.com/code/grid.py.
 
-def print_border():
-   print "+", "- " * 4, "+"
+def my_func1():
+    print("+", 4*'-', '+', 4*'-', '+', 4*'-', '+')
 
-def print_row():
-   row = "|", " " * 8, "|\n"
-   print row * 4
 
-def block():
-   print_border()
-   print_row()
-   
-block()
+def my_func2():
+    for x in range(4):
+        print('|', 4*' ', '|', 4*' ', '|', 4*' ', '|')
+
+
+def total():
+    my_func1()
+    my_func2()
+    my_func1()
+    my_func2()
+    my_func1()
+    my_func2()
+    my_func1()
+
+
+total()
